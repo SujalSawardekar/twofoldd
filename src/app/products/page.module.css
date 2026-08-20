@@ -1,0 +1,202 @@
+.hero {
+  background-color: var(--color-warm-white);
+  padding: var(--space-4xl) 0;
+  text-align: center;
+}
+.heroContent {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+}
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--color-charcoal);
+  margin-top: var(--space-md);
+}
+
+.showcaseSection {
+  padding: var(--space-3xl) 0;
+}
+.productRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin-bottom: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+  border-bottom: 1px solid var(--color-border);
+}
+@media (min-width: 768px) {
+  .productRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.productRow:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.productImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-border);
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .rowReverse .productImageWrapper {
+    order: 2;
+  }
+  .rowReverse .productText {
+    order: 1;
+  }
+}
+.productNumber {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  color: var(--color-steel-grey);
+  margin-bottom: var(--space-sm);
+}
+.productTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--color-navy);
+  margin-bottom: var(--space-md);
+}
+.productDesc {
+  font-size: var(--text-md);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+.productLink {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-navy);
+  padding-bottom: 2px;
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+.productLink:hover {
+  opacity: 0.8;
+}
+
+.introSection {
+  background-color: var(--color-warm-white);
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+.introContent {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+}
+.introHeadline {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--color-navy);
+  margin-bottom: var(--space-md);
+}
+.introCopy {
+  font-size: var(--text-lg);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+.introNote {
+  font-size: var(--text-sm);
+  color: var(--color-steel-grey);
+  font-style: italic;
+}
+.introCta {
+  margin-top: var(--space-md);
+}
+
+.pipelineSection {
+  padding: var(--space-4xl) 0;
+  background-color: var(--color-pure-white);
+}
+.pipelineTitle {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--color-navy);
+  margin-bottom: var(--space-2xl);
+}
+.pipelineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+@media (min-width: 768px) {
+  .pipelineWrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+}
+.pipelineStep {
+  background-color: var(--color-warm-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  text-align: center;
+  flex: 1;
+  width: 100%;
+}
+.pipelineNumber {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-navy);
+  color: var(--color-pure-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-sm);
+  font-weight: 700;
+}
+.pipelineStepTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h5);
+  color: var(--color-navy);
+}
+.pipelineArrow {
+  font-size: 1.5rem;
+  color: var(--color-steel-grey);
+  display: none;
+}
+@media (min-width: 768px) {
+  .pipelineArrow {
+    display: block;
+  }
+}
+
+.bottomCtas {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-warm-white);
+  text-align: center;
+}
+.bottomButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .bottomButtons {
+    flex-direction: row;
+  }
+}
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.buttonNote {
+  font-size: var(--text-sm);
+  color: var(--color-steel-grey);
+}
