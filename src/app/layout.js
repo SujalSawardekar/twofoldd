@@ -8,14 +8,14 @@ const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   style: ['normal', 'italic'],
-  variable: '--font-display',
+  variable: '--font-display-fallback',
   display: 'swap',
 });
 
 const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-body',
+  variable: '--font-body-fallback',
   display: 'swap',
 });
 

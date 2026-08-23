@@ -22,20 +22,19 @@
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
-  background: rgba(250, 248, 245, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: var(--radius-pill, 9999px);
-  border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
-  box-shadow: var(--shadow-nav, 0 8px 32px rgba(27, 42, 74, 0.08));
-  padding: 12px 32px;
+  background: transparent;
+  padding: 20px 0;
   transition: all var(--duration-normal, 0.4s) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
 .navbarWrapper.scrolled .navbar {
-  background: rgba(250, 248, 245, 0.95);
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-pill, 9999px);
+  border: 1px solid var(--color-border-light, rgba(0,0,0,0.06));
+  box-shadow: var(--shadow-nav, 0 8px 30px rgba(27, 42, 74, 0.04));
   padding: 8px 24px;
-  box-shadow: var(--shadow-nav-scrolled, 0 12px 48px rgba(27, 42, 74, 0.12));
 }
 
 .logo {
@@ -89,6 +88,18 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.whatsappLink {
+  color: var(--color-steel-grey, #8E99A4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast, 0.2s) ease;
+}
+
+.whatsappLink:hover {
+  color: var(--color-navy, #1B2A4A);
 }
 
 .ctaButton {

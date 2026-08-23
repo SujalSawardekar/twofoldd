@@ -122,6 +122,7 @@ export default function FoldExperience() {
           <div className={`${styles.foldPanel} ${styles.panel1}`}>
             <div className={`${styles.panelFace} ${styles.panel1}`}>
               <div className={styles.foldShadow} />
+              <div className={styles.ghostNumeral} aria-hidden="true">01</div>
               <div className={styles.panelContent}>
                 <span className={styles.panelLabel}>01 / The Brand</span>
                 <h2 className={styles.panelHeadline}>
@@ -141,32 +142,29 @@ export default function FoldExperience() {
           <div className={`${styles.foldPanel} ${styles.panel2}`}>
             <div className={`${styles.panelFace} ${styles.panel2}`}>
               <div className={styles.foldShadow} />
+              <div className={`${styles.ghostNumeral} ${styles.ghostLight}`} aria-hidden="true">02</div>
               <div className={styles.panelContent}>
                 <span className={styles.panelLabel}>02 / The Manufacturer</span>
                 <h2 className={styles.panelHeadline}>
                   Made With Experience.<br />
                   Built For Scale.
                 </h2>
-                <p className={styles.panelBody}>
-                  We combine hands-on manufacturing experience with established 
-                  supply chains and export-ready production.
-                </p>
                 <div className={styles.statsGrid}>
                   <div className={styles.statItem}>
-                    <div className={styles.statNumber}>10+</div>
-                    <div className={styles.statLabel}>Years Manufacturing<br />& Export Experience</div>
+                    <div className={styles.statNumber}>10+ Years</div>
+                    <div className={styles.statLabel}>Manufacturing &amp; Export</div>
                   </div>
                   <div className={styles.statItem}>
-                    <div className={styles.statNumber}>1988</div>
-                    <div className={styles.statLabel}>Family Heritage<br />in Paper Trade</div>
+                    <div className={styles.statNumber}>Since 1988</div>
+                    <div className={styles.statLabel}>Family Heritage in Paper</div>
                   </div>
                   <div className={styles.statItem}>
                     <div className={styles.statNumber}>AQL</div>
-                    <div className={styles.statLabel}>Quality Inspected<br />Before Dispatch</div>
+                    <div className={styles.statLabel}>Inspected Before Dispatch</div>
                   </div>
                   <div className={styles.statItem}>
                     <div className={styles.statNumber}>JNPT</div>
-                    <div className={styles.statLabel}>Global Shipping<br />Gateway</div>
+                    <div className={styles.statLabel}>Global Shipping Gateway</div>
                   </div>
                 </div>
               </div>
@@ -177,6 +175,7 @@ export default function FoldExperience() {
           <div className={`${styles.foldPanel} ${styles.panel3}`}>
             <div className={`${styles.panelFace} ${styles.panel3}`}>
               <div className={styles.foldShadow} />
+              <div className={styles.ghostNumeral} aria-hidden="true">03</div>
               <div className={styles.panelContent}>
                 <span className={styles.panelLabel}>03 / The Products</span>
                 <h2 className={styles.panelHeadline}>
@@ -184,30 +183,12 @@ export default function FoldExperience() {
                   With Purpose.
                 </h2>
                 <div className={styles.productList}>
-                  <div className={styles.productItem}>
-                    <span className={styles.productIndex}>01</span>
-                    <span className={styles.productName}>Exercise Books</span>
-                  </div>
-                  <div className={styles.productItem}>
-                    <span className={styles.productIndex}>02</span>
-                    <span className={styles.productName}>Spiral Bound</span>
-                  </div>
-                  <div className={styles.productItem}>
-                    <span className={styles.productIndex}>03</span>
-                    <span className={styles.productName}>Double Wire Bound</span>
-                  </div>
-                  <div className={styles.productItem}>
-                    <span className={styles.productIndex}>04</span>
-                    <span className={styles.productName}>Hard Cover Gally Bound</span>
-                  </div>
-                  <div className={styles.productItem}>
-                    <span className={styles.productIndex}>05</span>
-                    <span className={styles.productName}>Centre Stitched</span>
-                  </div>
-                  <div className={styles.productItem}>
-                    <span className={styles.productIndex}>06</span>
-                    <span className={styles.productName}>Glue Bound</span>
-                  </div>
+                  {['Exercise Books','Spiral Bound','Double Wire Bound','Hard Cover Gally Bound','Centre Stitched','Glue Bound'].map((name, i) => (
+                    <div key={i} className={styles.productItem}>
+                      <span className={styles.productIndex}>0{i + 1}</span>
+                      <span className={styles.productName}>{name}</span>
+                    </div>
+                  ))}
                 </div>
                 <div className={styles.panelCTA} style={{ marginTop: 'var(--space-lg)' }}>
                   <Button variant="primary" size="small" href="/products" hasArrow>
@@ -222,6 +203,7 @@ export default function FoldExperience() {
           <div className={`${styles.foldPanel} ${styles.panel4}`}>
             <div className={`${styles.panelFace} ${styles.panel4}`}>
               <div className={styles.foldShadow} />
+              <div className={`${styles.ghostNumeral} ${styles.ghostLight}`} aria-hidden="true">04</div>
               <div className={styles.panelContent}>
                 <span className={styles.panelLabel}>04 / The Connection</span>
                 <h2 className={styles.panelHeadline}>

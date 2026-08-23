@@ -1,140 +1,305 @@
+/* ══════════════════════════════════════════════════════
+   HERO — Locked to 100svh, single viewport composition
+   ══════════════════════════════════════════════════════ */
+
 .hero {
+  /* Hard viewport constraint */
+  height: 100svh;
+  max-height: 100svh;
+  overflow: hidden;
+
+  /* Account for fixed navbar: top:24px + padding:20px + logo:32px + padding:20px ≈ 96px */
+  padding-top: 96px;
+
+  background: var(--color-warm-white);
   position: relative;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Main grid: fills remaining height after padding ── */
+.grid {
+  flex: 1;
+  min-height: 0;                  /* critical — lets grid shrink in flex context */
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 0;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  align-items: stretch;
+}
+
+/* ─── LEFT column ─── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1rem, 2vh, 1.75rem);
+  padding-top:    clamp(1rem, 2vh, 2rem);
+  padding-bottom: clamp(2rem, 3vh, 3rem);
+  padding-right:  clamp(2rem, 4vw, 4rem);
+}
+
+/* Kicker */
+.kicker {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: var(--color-warm-white);
-  overflow: hidden;
-  padding: var(--space-4xl) var(--gutter);
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(27, 42, 74, 0.03) 0%, transparent 70%),
-    radial-gradient(ellipse at 80% 20%, rgba(27, 42, 74, 0.02) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-/* Paper texture noise overlay */
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 900px;
-}
-
-.label {
+  flex-wrap: wrap;
+  gap: 8px;
   font-family: var(--font-body);
-  font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: clamp(0.6rem, 0.75vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-steel-grey);
-  margin-bottom: var(--space-lg);
-  display: block;
 }
 
+.kickerSep {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* Headline */
 .headline {
   font-family: var(--font-display);
-  font-size: var(--text-hero);
-  font-weight: 600;
-  line-height: 1.05;
+  font-weight: 400;
+  /* Fluid size: large but won't break into >4 lines at any desktop width */
+  font-size: clamp(2.4rem, 4.2vw, 5.2rem);
+  line-height: 1.04;
   letter-spacing: -0.03em;
   color: var(--color-navy);
-  margin-bottom: var(--space-lg);
-}
-
-.headline em {
-  font-style: italic;
-  font-weight: 500;
-}
-
-.subtitle {
-  font-family: var(--font-body);
-  font-size: var(--text-body-lg);
-  color: var(--color-charcoal);
-  line-height: 1.8;
-  max-width: 52ch;
-  margin: 0 auto var(--space-xl);
-  opacity: 0.85;
-}
-
-.actions {
+  margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.02em;
+}
+
+/* Line-wrap container for GSAP reveal */
+.lineWrap {
+  display: block;
+  overflow: hidden;
+  line-height: 1.1;
+}
+
+.lineWrap > span {
+  display: block;
+  /* GSAP animates from y: 108% → 0% */
+}
+
+/* Sub-copy */
+.subtext {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--color-steel-grey);
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* CTAs */
+.ctas {
+  display: flex;
   align-items: center;
   gap: var(--space-md);
   flex-wrap: wrap;
 }
 
-.scrollIndicator {
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-pure-white);
+  background: var(--color-navy);
+  padding: 12px 22px;
+  border-radius: 4px;
+  transition: background 200ms ease, transform 150ms ease, gap 200ms ease;
+  white-space: nowrap;
+}
+
+.ctaPrimary:hover {
+  background: var(--color-navy-light);
+  transform: translateY(-1px);
+  gap: 12px;
+  color: var(--color-pure-white);
+}
+
+.ctaSecondary {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+  font-weight: 500;
+  color: var(--color-navy);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 200ms ease;
+  white-space: nowrap;
+}
+
+.ctaSecondary:hover {
+  opacity: 0.5;
+  color: var(--color-navy);
+}
+
+/* ─── RIGHT column ─── */
+.rightCol {
+  position: relative;
+  /* sits flush edge to edge vertically within the grid row */
+  padding: clamp(1rem, 2vh, 1.5rem) 0 clamp(1rem, 2vh, 1.5rem) clamp(1rem, 2vw, 2rem);
+}
+
+.imageFrame {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  /* animated by GSAP */
+}
+
+.imageInner {
+  /* extra vertical room for parallax */
   position: absolute;
-  bottom: var(--space-xl);
+  inset: -8% 0;
+  will-change: transform;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageFrame:hover .img {
+  transform: scale(1.025);
+}
+
+/* Floating badge */
+.badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(250, 248, 245, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(213, 213, 213, 0.6);
+  border-radius: 6px;
+  padding: 9px 13px;
+  pointer-events: none;
+}
+
+.badgeLabel {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  display: block;
+}
+
+.badgeSub {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey);
+  display: block;
+}
+
+/* ── Scroll cue ── */
+.scrollHint {
+  position: absolute;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  color: var(--color-steel-grey);
-  font-size: var(--text-label);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  animation: float 2.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .scrollLine {
+  display: block;
   width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--color-steel-grey), transparent);
-  animation: scrollPulse 2.5s ease-in-out infinite;
+  height: 36px;
+  background: var(--color-border);
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-navy);
+  transform: translateY(-100%);
+  animation: scrollTick 2s infinite ease-in-out;
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.2); }
+@keyframes scrollTick {
+  0%   { transform: translateY(-100%); }
+  55%  { transform: translateY(0%);    }
+  100% { transform: translateY(100%);  }
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
+/* ── Responsive ── */
+
+/* Tablet: keep side-by-side but adjust proportions */
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 96px;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+}
+
+/* Mobile: stack, but keep viewport height locked */
 @media (max-width: 768px) {
   .hero {
-    padding: var(--space-3xl) var(--gutter);
+    height: auto;
     min-height: 100svh;
+    padding-top: 80px;
+    padding-bottom: var(--space-2xl);
+    overflow: visible;
   }
 
-  .headline {
-    letter-spacing: -0.02em;
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
   }
 
-  .subtitle {
-    font-size: var(--text-body);
+  .leftCol {
+    padding-right: 0;
+    padding-bottom: 0;
+    order: 1;
   }
 
-  .actions {
-    flex-direction: column;
-    width: 100%;
+  .rightCol {
+    order: 2;
+    padding-left: 0;
+    height: 52vw;
+    min-height: 240px;
   }
 
-  .scrollIndicator {
+  .imageInner {
+    inset: 0;
+  }
+
+  .scrollHint {
     display: none;
   }
 }

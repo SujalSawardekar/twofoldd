@@ -48,8 +48,8 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: var(--space-2xl) var(--space-xl);
+  justify-content: flex-end;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 3.5vw, 3rem);
   overflow: hidden;
 }
 
@@ -78,6 +78,26 @@
   transition: opacity 0.3s ease;
 }
 
+/* Ghost numeral — large editorial backdrop number */
+.ghostNumeral {
+  position: absolute;
+  bottom: -0.15em;
+  right: -0.05em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(8rem, 18vw, 18rem);
+  line-height: 1;
+  color: rgba(27, 42, 74, 0.05);
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  letter-spacing: -0.04em;
+}
+
+.ghostLight {
+  color: rgba(255, 255, 255, 0.05);
+}
+
 /* ── Panel Themes ────────────────────────────────────────── */
 
 /* Panel 1 — The Brand (warm white, minimal) */
@@ -98,7 +118,7 @@
 
 /* Panel 4 — The Connection (navy, expansive) */
 .panel4 {
-  background-color: var(--color-navy-dark);
+  background-color: var(--color-navy);
   color: var(--color-warm-white);
 }
 
@@ -127,10 +147,10 @@
 
 .panelHeadline {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   margin-bottom: var(--space-md);
 }
 
@@ -146,10 +166,10 @@
 
 .panelBody {
   font-family: var(--font-body);
-  font-size: var(--text-small);
-  line-height: 1.7;
-  max-width: 32ch;
-  opacity: 0.85;
+  font-size: var(--text-body);
+  line-height: 1.75;
+  max-width: 30ch;
+  opacity: 0.75;
 }
 
 .panel1 .panelBody {
@@ -165,26 +185,32 @@
   color: var(--color-charcoal);
 }
 
-/* ── Stats Grid (Panel 2) ────────────────────────────────── */
+/* ── Stats Grid (Panel 2) — vertical ledger, no card boxes ── */
 .statsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .statItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
   padding: var(--space-sm) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .statNumber {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-weight: 400;
   color: var(--color-warm-white);
   line-height: 1;
-  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
 }
 
 .statLabel {
@@ -192,6 +218,7 @@
   font-size: var(--text-label);
   color: var(--color-steel-grey);
   line-height: 1.4;
+  text-align: right;
 }
 
 /* ── Product List (Panel 3) ──────────────────────────────── */
@@ -207,7 +234,7 @@
   align-items: baseline;
   gap: var(--space-xs);
   padding: var(--space-2xs) 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .productIndex {

@@ -45,10 +45,10 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about-us' },
+    { name: 'About Us and Infrastructure', path: '/about-us' },
     { name: 'Products', path: '/products' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact-us' },
+    { name: 'Contact Us', path: '/contact-us' },
   ];
 
   return (
@@ -58,10 +58,10 @@ const Navbar = () => {
           <Link href="/" className={styles.logo} aria-label="Twofold Home">
             <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
               <rect width="120" height="40" rx="8" fill="#1B2A4A" />
-              <text x="60" y="26" fontFamily="Playfair Display, serif" fontSize="20" fill="#FAF8F5" textAnchor="middle" fontWeight="bold">two fold</text>
+              <text x="60" y="26" fontFamily="var(--font-display), serif" fontSize="20" fill="#FAF8F5" textAnchor="middle" fontWeight="bold">two fold</text>
             </svg>
           </Link>
-
+ 
           <div className={styles.navLinks}>
             {navItems.map((item) => (
               <Link
@@ -75,6 +75,18 @@ const Navbar = () => {
           </div>
 
           <div className={styles.rightSection}>
+            <a 
+              href="https://wa.me/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.whatsappLink}
+              aria-label="Chat on WhatsApp"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.004 22C6.486 22 2 17.514 2 12.004C2 10.026 2.584 8.168 3.593 6.59L2.015 2.015L6.686 3.614C8.218 2.601 10.046 2.008 12.004 2.008C17.522 2.008 22.008 6.494 22.008 12.004C22.008 17.514 17.522 22 12.004 22ZM12.004 3.513C7.318 3.513 3.505 7.327 3.505 12.004C3.505 13.684 4.004 15.26 4.908 16.593L4.998 16.744L4.133 19.866L7.336 18.995L7.498 19.081C8.795 19.92 10.339 20.495 12.004 20.495C16.69 20.495 20.503 16.681 20.503 12.004C20.503 7.327 16.69 3.513 12.004 3.513ZM17.11 14.996C16.903 15.541 16.035 16.002 15.485 16.082C15.005 16.152 14.375 16.202 12.26 15.322C9.444 14.152 7.629 11.272 7.489 11.082C7.349 10.892 6.349 9.562 6.349 8.182C6.349 6.802 7.049 6.132 7.329 5.852C7.559 5.622 7.939 5.512 8.309 5.512C8.429 5.512 8.539 5.522 8.639 5.522C8.929 5.532 9.079 5.552 9.269 5.992C9.509 6.572 10.099 8.012 10.169 8.162C10.239 8.312 10.309 8.512 10.209 8.712C10.109 8.912 10.029 9.012 9.879 9.182C9.729 9.352 9.569 9.562 9.429 9.712C9.279 9.872 9.119 10.042 9.299 10.352C9.479 10.662 10.109 11.692 11.039 12.522C12.239 13.592 13.219 13.932 13.529 14.062C13.839 14.192 14.019 14.162 14.199 13.962C14.379 13.762 14.979 13.062 15.209 12.732C15.439 12.402 15.669 12.452 15.979 12.572C16.289 12.692 18.179 13.632 18.569 13.822C18.959 14.012 19.219 14.112 19.309 14.282C19.399 14.452 19.399 15.272 17.11 14.996Z" fill="currentColor"/>
+              </svg>
+            </a>
+
             <Link href="/contact-us" className={styles.ctaButton}>
               Request a Quote
             </Link>

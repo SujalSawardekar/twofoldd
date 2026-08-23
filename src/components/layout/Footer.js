@@ -11,11 +11,11 @@ const Footer = () => {
             <Link href="/" className={styles.logo} aria-label="Twofold Home">
               <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
                 <rect width="120" height="40" rx="8" fill="#FAF8F5" />
-                <text x="60" y="26" fontFamily="Playfair Display, serif" fontSize="20" fill="#1B2A4A" textAnchor="middle" fontWeight="bold">two fold</text>
+                <text x="60" y="26" fontFamily="var(--font-display), serif" fontSize="20" fill="#1B2A4A" textAnchor="middle" fontWeight="bold">two fold</text>
               </svg>
             </Link>
             <p className={styles.tagline}>
-              Manufacturing quality paper stationery for the world.
+              Three-decade family legacy combined with modern high-capacity automated paper production facility in Western India.
             </p>
           </div>
 
@@ -23,7 +23,7 @@ const Footer = () => {
             <h3 className={styles.columnHeading}>Navigation</h3>
             <ul className={styles.linkList}>
               <li><Link href="/" className={styles.footerLink}>Home</Link></li>
-              <li><Link href="/about-us" className={styles.footerLink}>About Us</Link></li>
+              <li><Link href="/about-us" className={styles.footerLink}>About Us and Infrastructure</Link></li>
               <li><Link href="/products" className={styles.footerLink}>Products</Link></li>
               <li><Link href="/blog" className={styles.footerLink}>Blog</Link></li>
               <li><Link href="/contact-us" className={styles.footerLink}>Contact Us</Link></li>
@@ -36,7 +36,9 @@ const Footer = () => {
               <div className={styles.contactItem}>Palghar, Maharashtra, India</div>
               <div className={styles.contactItem}>Email: [PLACEHOLDER]</div>
               <div className={styles.contactItem}>Phone: [PLACEHOLDER]</div>
-              <div className={styles.contactItem}>WhatsApp: [PLACEHOLDER]</div>
+              <div className={styles.contactItem}>
+                WhatsApp: <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className={styles.footerWhatsapp}>[PLACEHOLDER]</a>
+              </div>
             </div>
           </div>
 
@@ -70,7 +72,7 @@ const Footer = () => {
               </a>
               <a href="#" className={styles.socialIcon} aria-label="Twitter">
                 <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 9.40002C3.28594 9.96089 2.46635 10.3724 1.59 10.61C1.49348 10.6451 1.41008 10.709 1.35114 10.793C1.29221 10.8771 1.26059 10.9773 1.26059 11.08C1.26059 11.1827 1.29221 11.2829 1.35114 11.367C1.41008 11.4511 1.49348 11.515 1.59 11.55C8.51 14.39 12.91 10 12.24 5.13002L13.36 2.81002H12.06C10.44 0.820022 6.14 0.920022 6.85 5.16002C6.85 5.16002 4.55 5.57002 1.61 2.68002C1.54199 2.61288 1.45617 2.56663 1.36269 2.54676C1.26921 2.52689 1.17199 2.53422 1.08255 2.56789C0.993113 2.60156 0.915197 2.66016 0.858031 2.73675C0.800866 2.81333 0.766846 2.9047 0.760002 3.00002C0.449134 4.27787 0.604706 5.62472 1.1987 6.79805C1.7927 7.97138 2.7861 8.89409 4 9.40002V9.40002Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4 9.40002C3.28594 9.96089 2.46635 10.3724 1.59 10.61C1.49348 10.6451 1.41008 10.709 1.35114 10.793C1.29221 10.8771 1.26059 10.9773 1.26059 11.08C1.26059 11.0827 1.29221 11.2829 1.35114 11.367C1.41008 11.4511 1.49348 11.515 1.59 11.55C8.51 14.39 12.91 10 12.24 5.13002L13.36 2.81002H12.06C10.44 0.820022 6.14 0.920022 6.85 5.16002C6.85 5.16002 4.55 5.57002 1.61 2.68002C1.54199 2.61288 1.45617 2.56663 1.36269 2.54676C1.26921 2.52689 1.17199 2.53422 1.08255 2.56789C0.993113 2.60156 0.915197 2.66016 0.858031 2.73675C0.800866 2.81333 0.766846 2.9047 0.760002 3.00002C0.449134 4.27787 0.604706 5.62472 1.1987 6.79805C1.7927 7.97138 2.7861 8.89409 4 9.40002V9.40002Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
               <a href="#" className={styles.socialIcon} aria-label="YouTube">
@@ -85,7 +87,7 @@ const Footer = () => {
 
         <div className={styles.bottomSection}>
           <div className={styles.bottomText}>
-            © 2024 Twofold. All rights reserved.
+            © {new Date().getFullYear()} Twofold. All rights reserved.
           </div>
           <div className={styles.legalLinks}>
             <Link href="/privacy-policy" className={styles.legalLink}>Privacy Policy</Link>

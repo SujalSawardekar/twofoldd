@@ -1,79 +1,246 @@
+/* ══════════════════════════════════════════════════════
+   WHO WE SERVE — Interactive typographic list + dynamic image panel
+   ══════════════════════════════════════════════════════ */
+
 .section {
-  padding: var(--space-3xl) 0;
-  background-color: var(--color-pure-white);
+  background: var(--color-warm-white);
+  border-top: 1px solid var(--color-border);
+  padding: clamp(5rem, 10vw, 9rem) 0;
 }
 
-.header {
-  margin-bottom: var(--space-3xl);
-  max-width: 800px;
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
-.headline {
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  color: var(--color-navy);
-  margin-top: var(--space-sm);
-  line-height: 1.1;
-}
-
-.row {
+/* ── Top row ── */
+.topRow {
   display: flex;
-  gap: var(--space-lg);
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.card {
-  flex: 1;
-  padding: var(--space-xl) var(--space-lg);
-  border-bottom: 2px solid var(--color-border-light);
-  transition: border-bottom-color 0.3s ease, transform 0.3s ease;
-  background-color: var(--color-warm-white);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+  line-height: 1.1;
+  flex-shrink: 0;
 }
 
-.card:hover {
-  border-bottom-color: var(--color-navy);
-  transform: translateY(-4px);
+.subtext {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--color-steel-grey);
+  max-width: 42ch;
+  text-align: right;
+  margin: 0;
 }
 
-.number {
+/* ── Interactive block ── */
+.interactiveBlock {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0;
+  align-items: stretch;
+}
+
+/* ── List ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+  border-bottom: 1px solid var(--color-border);
+  cursor: default;
+  transition: padding-left 280ms cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--color-navy);
+  transition: width 280ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.itemActive {
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.itemActive::before {
+  width: 3px;
+}
+
+.itemDim .itemTitle {
+  color: var(--color-border);
+}
+
+.itemDim .itemIdx,
+.itemDim .itemDesc {
+  opacity: 0.3;
+}
+
+.itemIdx {
   font-family: var(--font-body);
   font-size: var(--text-label);
-  color: var(--color-steel-grey);
-  margin-bottom: var(--space-md);
   font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-steel-grey);
+  transition: opacity 250ms ease;
+  flex-shrink: 0;
 }
 
-.title {
+.itemTitle {
   font-family: var(--font-display);
-  font-size: var(--text-h3);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
   color: var(--color-navy);
-  margin-bottom: var(--space-sm);
-  line-height: 1.2;
+  transition: color 250ms ease, font-size 250ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.desc {
+.itemActive .itemTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+}
+
+.itemDesc {
   font-family: var(--font-body);
   font-size: var(--text-small);
-  color: var(--color-charcoal);
-  margin: 0;
+  color: var(--color-steel-grey);
   line-height: 1.5;
+  max-width: 28ch;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 250ms ease 50ms, transform 250ms ease 50ms;
 }
 
-@media (max-width: 992px) {
-  .row {
-    flex-wrap: wrap;
-  }
-  .card {
-    flex: 0 0 calc(50% - var(--space-lg) / 2);
-  }
+.itemActive .itemDesc {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@media (max-width: 576px) {
-  .row {
+.itemArrow {
+  display: flex;
+  align-items: center;
+  color: var(--color-border);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 250ms ease, transform 250ms ease, color 250ms ease;
+  flex-shrink: 0;
+}
+
+.itemActive .itemArrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--color-navy);
+}
+
+/* ── Image panel ── */
+.imagePanel {
+  position: relative;
+  background: var(--color-border-light);
+  overflow: hidden;
+  border-left: 1px solid var(--color-border);
+}
+
+.panelSlot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 380ms cubic-bezier(0.25, 1, 0.5, 1),
+              transform 380ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.panelSlotVisible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.panelImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.panelPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #c9c4bd 0%, #b5b0a9 100%);
+}
+
+.defaultSlate {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+
+.defaultSlateVisible {
+  opacity: 1;
+}
+
+.defaultHint {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .interactiveBlock {
+    grid-template-columns: 1fr;
+  }
+
+  .imagePanel {
+    display: none; /* hide on mobile; list is full-width */
+  }
+
+  .topRow {
     flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
   }
-  .card {
-    flex: 1 1 auto;
-    width: 100%;
+
+  .subtext {
+    text-align: left;
+  }
+
+  .item {
+    grid-template-columns: 36px 1fr auto;
+  }
+
+  .itemDesc {
+    display: none;
+  }
+
+  .itemActive .itemTitle {
+    font-size: inherit;
   }
 }

@@ -1,86 +1,171 @@
+/* ══════════════════════════════════════════════════════
+   PRODUCT RANGE — Sticky sidebar + editorial gallery
+   ══════════════════════════════════════════════════════ */
+
 .section {
-  padding: var(--space-3xl) 0;
-  background-color: var(--color-pure-white);
-  overflow: hidden;
+  background: var(--color-warm-white);
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  border-top: 1px solid var(--color-border);
 }
 
-.header {
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+
+/* ── Left sidebar ── */
+.sidebar {
+  position: sticky;
+  top: 100px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: var(--space-2xl);
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey);
 }
 
 .headline {
   font-family: var(--font-display);
-  font-size: var(--text-h2);
-  color: var(--color-navy);
-  margin-top: var(--space-sm);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1.1;
-  max-width: 15ch;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+  margin: 0;
 }
 
-.scrollWrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding-bottom: var(--space-xl);
-  padding-left: max(var(--space-md), calc((100vw - 1200px) / 2));
+.copy {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.8;
+  color: var(--color-steel-grey);
+  max-width: 38ch;
+  margin: 0;
 }
 
-.scrollWrapper::-webkit-scrollbar {
-  display: none;
+.cta {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--color-navy);
+  border-bottom: 1px solid var(--color-navy);
+  padding-bottom: 2px;
+  display: inline-block;
+  margin-top: var(--space-sm);
+  transition: opacity 200ms ease;
 }
 
-.track {
+.cta:hover {
+  opacity: 0.6;
+  color: var(--color-navy);
+}
+
+/* ── Right gallery ── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  gap: 10px;
+}
+
+.item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+}
+
+.item:hover {
+  opacity: 0.88;
+}
+
+.item.tall {
+  grid-row: span 2;
+}
+
+.item.wide {
+  grid-column: span 2;
+}
+
+.imagePlaceholder {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(160deg, #d3cec8 0%, #bfbab3 100%);
+}
+
+.item.tall .imagePlaceholder {
+  background-image: linear-gradient(160deg, #c9c4bd 0%, #b5b0a9 100%);
+}
+
+.item.wide .imagePlaceholder {
+  background-image: linear-gradient(135deg, #d0cbc4 0%, #bcb7b0 100%);
+}
+
+.itemMeta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
   display: flex;
-  gap: var(--space-lg);
-  padding-right: max(var(--space-md), calc((100vw - 1200px) / 2));
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(to top, rgba(27,42,74,0.55) 0%, transparent 100%);
 }
 
-.cardWrapper {
-  min-width: 320px;
-  flex-shrink: 0;
+.itemIdx {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
 }
 
-.mobileCta {
-  display: none;
+.itemName {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: #fff;
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
   }
-  
-  .ctaWrapper {
-    display: none;
+  .sidebar {
+    position: static;
   }
-  
-  .scrollWrapper {
-    overflow-x: visible;
-    padding-left: 0;
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .track {
-    flex-direction: column;
-    padding: 0 max(var(--space-md), calc((100vw - 1200px) / 2));
+}
+
+@media (max-width: 640px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
   }
-  
-  .cardWrapper {
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .mobileCta {
-    display: block;
-    margin-top: var(--space-xl);
-  }
-  
-  .mobileBtn {
-    width: 100%;
-    justify-content: center;
+  .item.wide {
+    grid-column: span 1;
   }
 }

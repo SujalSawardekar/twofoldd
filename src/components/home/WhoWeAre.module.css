@@ -1,62 +1,207 @@
+/* ══════════════════════════════════════════════════════
+   WHO WE ARE — Editorial dual-image composition
+   ══════════════════════════════════════════════════════ */
+
 .section {
-  padding: var(--space-3xl) 0;
-  background-color: var(--color-warm-white);
+  background: var(--color-warm-white);
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  overflow: hidden;
 }
 
-.layout {
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Top row ── */
+.topRow {
   display: flex;
   align-items: center;
-  gap: var(--space-3xl);
+  justify-content: space-between;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-.textContent {
-  flex: 0 0 55%;
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey);
 }
 
-.headline {
+.location {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-border);
+}
+
+/* ── Composition grid ── */
+.compositionGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+}
+
+/* ── Main image area ── */
+.mainImageArea {
+  position: relative;
+}
+
+.mainFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  /* clipPath animated by GSAP */
+}
+
+.mainImg {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mainFrame:hover .mainImg {
+  transform: scale(1.03);
+}
+
+/* Overlapping notebook: positioned bottom-right */
+.notebookFrame {
+  position: absolute;
+  bottom: -12%;
+  right: -10%;
+  width: 38%;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 3px solid var(--color-warm-white);
+  box-shadow: 0 12px 40px rgba(27, 42, 74, 0.14);
+  will-change: transform;
+}
+
+.notebookImg {
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.notebookFrame:hover .notebookImg {
+  transform: scale(1.05);
+}
+
+/* ── Text area ── */
+.textArea {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  padding-top: clamp(1rem, 3vw, 3rem);
+}
+
+.statement {
   font-family: var(--font-display);
-  font-size: var(--text-h2);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   color: var(--color-navy);
-  margin-top: var(--space-sm);
-  margin-bottom: var(--space-md);
-  line-height: 1.1;
+  margin: 0;
+}
+
+.statement em {
+  font-style: italic;
+  color: var(--color-steel-grey);
+}
+
+.bodyBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 
 .copy {
   font-family: var(--font-body);
-  font-size: var(--text-lg);
+  font-size: var(--text-body-lg);
+  line-height: 1.85;
   color: var(--color-charcoal);
-  margin-bottom: var(--space-xl);
-  line-height: 1.6;
-  max-width: 600px;
+  opacity: 0.8;
+  max-width: 48ch;
+  margin: 0;
 }
 
-.imageWrapper {
-  flex: 0 0 45%;
-}
-
-.imagePlaceholder {
-  width: 100%;
-  height: 400px;
-  background-color: var(--color-steel-grey);
-  border-radius: var(--radius-2xl);
+/* Pillar tags */
+.pillars {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pillar {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 5px 12px;
+}
+
+/* CTA */
+.cta {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: var(--color-pure-white);
+  gap: 8px;
   font-family: var(--font-body);
   font-size: var(--text-body);
-  opacity: 0.6;
+  font-weight: 600;
+  color: var(--color-navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-navy);
+  padding-bottom: 2px;
+  width: fit-content;
+  transition: gap 200ms ease, opacity 200ms ease;
 }
 
-@media (max-width: 992px) {
-  .layout {
+.cta:hover {
+  gap: 12px;
+  opacity: 0.6;
+  color: var(--color-navy);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .notebookFrame {
+    right: -5%;
+    width: 32%;
+  }
+}
+
+@media (max-width: 768px) {
+  .compositionGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .mainFrame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .notebookFrame {
+    width: 30%;
+    bottom: -10%;
+    right: 4%;
+  }
+
+  .topRow {
     flex-direction: column;
     align-items: flex-start;
-  }
-  
-  .textContent, .imageWrapper {
-    flex: none;
-    width: 100%;
+    gap: 4px;
   }
 }

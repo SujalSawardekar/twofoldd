@@ -1,60 +1,192 @@
+/* ══════════════════════════════════════════════════════
+   INSIGHTS — Editorial asymmetric layout
+   ══════════════════════════════════════════════════════ */
+
 .section {
-  padding: var(--space-3xl) 0;
-  background-color: var(--color-warm-white);
+  background: var(--color-warm-white);
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  border-top: 1px solid var(--color-border);
 }
 
-.header {
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Top row ── */
+.topRow {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: var(--space-2xl);
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey);
+  display: block;
+  margin-bottom: var(--space-sm);
 }
 
 .headline {
   font-family: var(--font-display);
-  font-size: var(--text-h2);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  letter-spacing: -0.02em;
   color: var(--color-navy);
-  margin-top: var(--space-sm);
+  margin: 0;
   line-height: 1.1;
 }
 
+.allLink {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--color-navy);
+  border-bottom: 1px solid var(--color-navy);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 200ms ease;
+}
+
+.allLink:hover {
+  opacity: 0.6;
+  color: var(--color-navy);
+}
+
+/* ── Editorial grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* ── Featured article ── */
+.featured {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-lg);
+  text-decoration: none;
+  color: inherit;
 }
 
-.ctaMobile {
-  display: none;
+.featured:hover .featuredTitle {
+  opacity: 0.7;
 }
 
-@media (max-width: 992px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.featuredImage {
+  width: 100%;
+  height: clamp(240px, 30vw, 380px);
+  border-radius: 6px;
+  background-image: linear-gradient(160deg, #cdc8c1 0%, #b8b3ac 100%);
+  flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .ctaDesktop {
-    display: none;
-  }
-  
+.featuredMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cat {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey);
+}
+
+.featuredTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+  margin: 0;
+  transition: opacity 200ms ease;
+}
+
+.excerpt {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--color-steel-grey);
+  margin: 0;
+  max-width: 52ch;
+}
+
+.readLink {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-navy);
+  letter-spacing: 0.05em;
+}
+
+/* ── Secondary articles ── */
+.secondary {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+}
+
+.secondaryItem {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 200ms ease;
+}
+
+.secondaryItem:hover {
+  opacity: 0.7;
+}
+
+.secondaryThumb {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background-image: linear-gradient(160deg, #d0cbc4 0%, #bcb7b0 100%);
+}
+
+.secondaryText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+.secondaryTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.3;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
   }
-  
-  .ctaMobile {
-    display: block;
-    margin-top: var(--space-xl);
-  }
-  
-  .fullBtn {
-    width: 100%;
-    justify-content: center;
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
