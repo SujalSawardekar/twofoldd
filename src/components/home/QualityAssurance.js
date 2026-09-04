@@ -59,7 +59,7 @@ export default function QualityAssurance() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=90%',
+          end: '+=75%',
           pin: true,
           scrub: 0.3,
           anticipatePin: 1,
@@ -72,7 +72,7 @@ export default function QualityAssurance() {
         tl.to(
           headerRef.current,
           {
-            y: -220,
+            y: -180,
             opacity: 0,
             ease: 'power2.in',
             duration: 0.25,
@@ -81,35 +81,35 @@ export default function QualityAssurance() {
         );
       }
 
-      // Step 2: Card 01 moves UPWARD into header top space (0 -> -160px)
+      // Step 2: Card 01 moves UPWARD into header top space (0 -> -110px)
       tl.to(
         cards[0],
         {
-          y: -160,
+          y: -110,
           ease: 'power1.inOut',
           duration: 0.7,
         },
         0
       );
 
-      // Step 3: Card 02 moves UPWARD (280px -> -160px) so its bottom half reveals & aligns level
+      // Step 3: Card 02 moves UPWARD from lower position (120px -> -110px) to level with Card 1
       tl.fromTo(
         cards[1],
-        { y: 280 },
+        { y: 120 },
         {
-          y: -160,
+          y: -110,
           ease: 'power1.inOut',
           duration: 0.8,
         },
         0.1
       );
 
-      // Step 4: Card 03 moves UPWARD (560px -> -160px) from off-screen to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD from lower position (240px -> -110px) to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 560 },
+        { y: 240 },
         {
-          y: -160,
+          y: -110,
           ease: 'power1.inOut',
           duration: 0.8,
         },

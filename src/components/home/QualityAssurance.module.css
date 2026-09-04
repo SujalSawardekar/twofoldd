@@ -14,12 +14,8 @@
   position: relative;
   background-color: #F9FAF5;
   color: #11172D;
-  padding: clamp(2rem, 4vh, 3.5rem) 0 clamp(2rem, 4vh, 3.5rem);
+  padding: clamp(2rem, 3.5vh, 3rem) 0 1rem 0;
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -114,11 +110,11 @@
 }
 
 .cardStagger2 {
-  transform: translateY(280px);
+  transform: translateY(120px);
 }
 
 .cardStagger3 {
-  transform: translateY(560px);
+  transform: translateY(240px);
 }
 
 /* Hover Interaction */
