@@ -127,7 +127,7 @@ export default function QualityAssurance() {
 
         {/* ── HEADER (Shifts UPWARD off-screen on scroll) ── */}
         <div className={styles.header} ref={headerRef}>
-          <span className={styles.eyebrow}>04 / QUALITY ASSURANCE</span>
+          <span className={styles.eyebrow}>QUALITY ASSURANCE</span>
           
           {/* Strictly Two Lines on Desktop */}
           <h2 className={styles.headline}>

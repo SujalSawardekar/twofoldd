@@ -31,19 +31,19 @@
 }
 
 .eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--text-label);
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-steel-grey);
+  color: #C9A24A;
 }
 
 .headline {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--color-navy);
   margin: 0;

@@ -21,7 +21,7 @@ export default function ProductRange() {
 
           {/* Left: sticky header */}
           <div className={styles.sidebar}>
-            <span className={styles.eyebrow}>Our Products</span>
+            <span className={styles.eyebrow}>Product Range</span>
             <h2 className={styles.headline}>
               Paper Products.<br />
               Built for Every<br />

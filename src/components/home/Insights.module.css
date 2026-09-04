@@ -40,13 +40,13 @@
 }
 
 .headline {
-  font-family: var(--font-display, 'Playfair Display', serif);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   letter-spacing: -0.02em;
   color: #11172D;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.12;
 }
 
 .subtext {

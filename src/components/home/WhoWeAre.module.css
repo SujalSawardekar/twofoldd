@@ -14,30 +14,39 @@
   padding: 0 var(--gutter);
 }
 
-/* ── Top row ── */
-.topRow {
+/* ── Section Header ── */
+.header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--text-label);
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-steel-grey);
+  color: #C9A24A;
 }
 
-.location {
-  font-family: var(--font-body);
-  font-size: var(--text-label);
+.statement {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-border);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+  text-align: left;
+}
+
+.statement em {
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 /* ── Composition grid ── */

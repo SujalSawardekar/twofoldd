@@ -99,7 +99,7 @@ const products = [
 ];
 
 const defaultInfo = {
-  eyebrow: "Twofold · Binding Showcase",
+  eyebrow: "Binding Showcase",
   headline: 'Six bindings.<br /><span class="accent">One</span> uncompromising standard.',
   sub: "Since 1988, we've manufactured and exported high-volume paper stationery from our ISO 9001:2015 certified facility — bound, stitched, and shipped worldwide.",
   stat1: "10+",
@@ -118,12 +118,6 @@ export default function NotebookShelf() {
       <div className={styles.gridOverlay} />
       
       <div className={styles.inner}>
-        {/* Top Header Tag */}
-        <div className={styles.topline}>
-          <div>Paperforce <span className={styles.dot}>·</span> Corporate Catalog</div>
-          <div>Est. 1988 <span className={styles.dot}>·</span> Palghar, India</div>
-        </div>
-
         <div className={styles.body}>
           {/* Left Column: Dynamic Info */}
           <div className={styles.copy}>

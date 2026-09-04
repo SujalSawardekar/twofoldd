@@ -63,7 +63,7 @@ export default function Insights() {
         {/* ── TOP HEADER ROW ── */}
         <div className={styles.topRow}>
           <div className={styles.headerLeft}>
-            <span className={styles.eyebrow}>06 / INSIGHTS</span>
+            <span className={styles.eyebrow}>LATEST INSIGHTS</span>
             <h2 className={styles.headline}>Latest Insights</h2>
             <p className={styles.subtext}>
               Stay informed! Explore our latest updates on paper manufacturing, export trends, and stationery insights.

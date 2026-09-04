@@ -47,7 +47,7 @@ export default function GlobalReach() {
           
           {/* ── LEFT COLUMN: ALL INFO & STATISTICS ── */}
           <div className={styles.infoCol}>
-            <span className={styles.eyebrow}>05 / GLOBAL REACH</span>
+            <span className={styles.eyebrow}>GLOBAL REACH</span>
             <h2 className={styles.headline}>
               Made in India.<br />
               Shipped Worldwide.

@@ -48,7 +48,7 @@ export default function WhoWeServe() {
 
         {/* Top Header Row */}
         <div className={styles.topRow}>
-          <span className={styles.eyebrow}>04 / WHO WE SERVE</span>
+          <span className={styles.eyebrow}>WHO WE SERVE</span>
           <h2 className={styles.headline}>
             Built for buyers who need a manufacturing partner, not just a vendor.
           </h2>

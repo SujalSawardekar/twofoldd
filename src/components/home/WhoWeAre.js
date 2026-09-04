@@ -74,10 +74,12 @@ export default function WhoWeAre() {
     <section className={styles.section} ref={sectionRef} id="who-we-are">
       <div className={styles.inner}>
 
-        {/* ── Top: eyebrow ── */}
-        <div className={styles.topRow}>
+        {/* ── Section Header ── */}
+        <div className={styles.header}>
           <span className={styles.eyebrow}>Who We Are</span>
-          <span className={styles.location}>Palghar, Maharashtra · Est. 1988</span>
+          <h2 className={styles.statement}>
+            A Manufacturer, Not Just <em>a Supplier.</em>
+          </h2>
         </div>
 
         {/* ── Main composition grid ── */}
@@ -109,13 +111,6 @@ export default function WhoWeAre() {
 
           {/* Right: editorial text block */}
           <div className={styles.textArea}>
-
-            <h2 className={styles.statement}>
-              A Manufacturer,<br />
-              Not Just<br />
-              <em>a Supplier.</em>
-            </h2>
-
             <div className={styles.bodyBlock}>
               <p className={styles.copy}>
                 At Twofold, we manufacture and export paper stationery to
