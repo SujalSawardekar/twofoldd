@@ -92,10 +92,10 @@ export default function QualityAssurance() {
         0
       );
 
-      // Step 3: Card 02 moves UPWARD from lower position (120px -> -160px) to level with Card 1
+      // Step 3: Card 02 moves UPWARD from lower position (240px -> -160px) to level with Card 1
       tl.fromTo(
         cards[1],
-        { y: 120 },
+        { y: 240 },
         {
           y: -160,
           ease: 'power1.inOut',
@@ -104,10 +104,10 @@ export default function QualityAssurance() {
         0.1
       );
 
-      // Step 4: Card 03 moves UPWARD from lower position (240px -> -160px) to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD from lower position (480px -> -160px) to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 240 },
+        { y: 480 },
         {
           y: -160,
           ease: 'power1.inOut',
