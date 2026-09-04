@@ -7,20 +7,20 @@ import styles from './AboutTimeline.module.css';
 
 const MILESTONES = [
   {
-    tag: 'HERITAGE ROOTS',
-    year: '1988',
+    num: '01',
+    badge: '1988 · PAPER TRADE HERITAGE',
     title: 'Family Roots in the Paper Trade',
     description: 'Three decades of foundation in paper trading, establishing deep relationships with certified mills, understanding substrate grammages, and developing an enduring standard for paper goods.',
   },
   {
-    tag: 'PRODUCTION SCALING',
-    year: 'MANUFACTURING ERA',
+    num: '02',
+    badge: 'MANUFACTURING ERA · PALGHAR',
     title: 'Integrated Factory Operations Begin',
     description: 'Transitioning into direct volume converting at our Palghar facility. Building over a decade of hands-on production, precision folding, wire binding, and container-load export capability.',
   },
   {
-    tag: 'GLOBAL HORIZON',
-    year: 'TODAY',
+    num: '03',
+    badge: 'TODAY · GLOBAL EXPANSION',
     title: 'Exporting Across Five Global Regions',
     description: 'Twofold actively manufactures and exports high-volume notebooks and paper stationery to distributors, wholesalers, and retail brands across Africa, the Middle East, Europe, and the Americas.',
   },
@@ -61,6 +61,8 @@ export default function AboutTimeline() {
     });
   }, { scope: sectionRef });
 
+  const active = MILESTONES[activeIdx];
+
   return (
     <section className={styles.section} ref={sectionRef} id="heritage-timeline" aria-label="Twofold Heritage Timeline">
       <div className={styles.inner}>
@@ -73,26 +75,36 @@ export default function AboutTimeline() {
           </h2>
         </div>
 
-        {/* Pinned Timeline Container */}
+        {/* Pinned Timeline Container — Standardized Uniform Layout */}
         <div className={styles.pinnedTimeline}>
 
-          {/* Left: Oversized Persistent Anchor Year */}
-          <div className={styles.yearCol}>
-            <div className={styles.tagLabel}>
-              {MILESTONES[activeIdx].tag}
+          {/* Left: Standardized Persistent Anchor Numeral */}
+          <div className={styles.numCol}>
+            <div className={styles.numWrapper}>
+              <span className={styles.hugeNum} key={active.num}>
+                {active.num}
+              </span>
+              <div className={styles.stepIndicator}>
+                MILESTONE 0{activeIdx + 1} OF 0{MILESTONES.length}
+              </div>
             </div>
 
-            <div className={styles.largeYear}>
-              {MILESTONES[activeIdx].year}
-            </div>
-
-            <div className={styles.stepIndicator}>
-              MILESTONE 0{activeIdx + 1} / 0{MILESTONES.length}
+            {/* Micro Progress Bar */}
+            <div className={styles.progressDots}>
+              {MILESTONES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActiveIdx(i)}
+                  className={`${styles.dotBtn} ${i === activeIdx ? styles.dotActive : ''}`}
+                  aria-label={`Go to milestone 0${i + 1}`}
+                />
+              ))}
             </div>
           </div>
 
           {/* Center: Thin Hairline Gold Progress Track */}
-          <div className={styles.trackCol}>
+          <div className={styles.trackCol} aria-hidden="true">
             <div className={styles.progressTrack}>
               <div className={styles.progressFill} />
             </div>
@@ -107,15 +119,27 @@ export default function AboutTimeline() {
             </div>
           </div>
 
-          {/* Right: Milestone Story Content */}
+          {/* Right: Milestone Story Content with Uniform Structure */}
           <div className={styles.contentCol}>
-            <div className={styles.cardContent} key={activeIdx}>
+            <div className={styles.cardContent} key={active.num}>
+              
+              <div className={styles.badgeWrap}>
+                <span className={styles.badgePill}>{active.badge}</span>
+              </div>
+
               <h3 className={styles.milestoneTitle}>
-                {MILESTONES[activeIdx].title}
+                {active.title}
               </h3>
+
               <p className={styles.milestoneDesc}>
-                {MILESTONES[activeIdx].description}
+                {active.description}
               </p>
+
+              <div className={styles.trustNote}>
+                <span className={styles.noteDot} />
+                PALGHAR FACTORY PROVEN HERITAGE
+              </div>
+
             </div>
           </div>
 

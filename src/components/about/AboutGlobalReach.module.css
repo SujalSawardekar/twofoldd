@@ -1,14 +1,15 @@
 /* ══════════════════════════════════════════════════════
-   ABOUT GLOBAL REACH — Chapter 06
-   Editorial World Corridors & 6-Step Export Pipeline
+   STEP-BY-STEP WORKFLOW — Redesigned Pinned Editorial Sequence
    ══════════════════════════════════════════════════════ */
 
 .section {
   position: relative;
   background-color: #FFFFFF;
   color: var(--color-navy, #11172D);
-  padding: clamp(5rem, 8vw, 8rem) 0;
+  padding: clamp(5rem, 8vw, 7rem) 0;
   width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
   border-bottom: 1px solid var(--color-border-light, #EAE6DF);
 }
 
@@ -16,6 +17,10 @@
   max-width: var(--container-max, 1360px);
   margin: 0 auto;
   padding: 0 clamp(20px, 3.5vw, 48px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Header */
@@ -24,7 +29,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
-  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 .eyebrow {
@@ -53,214 +58,171 @@
   color: var(--color-navy, #11172D);
 }
 
-.copy {
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
-  line-height: 1.7;
-  color: #4B5563;
-  max-width: 60ch;
-  margin: 0.5rem 0 0 0;
-}
-
-/* Region Destination Grid */
-.regionGrid {
+/* Pinned Stage */
+.stage {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
-}
-
-.regionCard {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  padding: 1.25rem;
-  background-color: var(--color-warm-white, #F9FAF5);
-  border: 1px solid var(--color-border-light, #EAE6DF);
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.regionCard:hover {
-  border-color: var(--color-gold, #C9A24A);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px -6px rgba(17, 23, 45, 0.08);
-}
-
-.regionDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-gold, #C9A24A);
-  margin-top: 6px;
-  flex-shrink: 0;
-}
-
-.regionText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.regionName {
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-navy, #11172D);
-}
-
-.regionHub {
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.78rem;
-  color: #6B7280;
-}
-
-/* Strategic Corridor Banner */
-.corridorBanner {
-  display: flex;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(3rem, 7vw, 8rem);
   align-items: center;
-  justify-content: space-between;
-  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2.5rem);
-  background-color: var(--color-navy, #11172D);
-  color: #FFFFFF;
-  border-radius: 6px;
-  margin-bottom: clamp(3rem, 5vw, 4.5rem);
-  box-shadow: 0 16px 36px -8px rgba(17, 23, 45, 0.2);
+  min-height: 420px;
 }
 
-.corridorStep {
+/* Left: Persistent Anchor Number */
+.anchorCol {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-}
-
-.cLabel {
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--color-gold, #C9A24A);
-}
-
-.cValue {
-  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
-  color: #FAF8F5;
-}
-
-.cArrow {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/* Process Area */
-.processArea {
-  display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   gap: 2rem;
 }
 
-.processHeader {
+.anchorWrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
-.processEyebrow {
+.hugeAnchorNum {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(6.5rem, 14vw, 13rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--color-navy, #11172D);
+  animation: numPop 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes numPop {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stepBadge {
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.16em;
-  color: var(--color-gold, #C9A24A);
   text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
 }
 
-.processTitle {
-  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: clamp(1.6rem, 2.2vw, 2rem);
-  color: var(--color-navy, #11172D);
-  font-weight: 400;
-  margin: 0;
-}
-
-/* Steps Grid */
-.stepsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-.stepCard {
-  padding: 1.75rem;
-  background-color: var(--color-warm-white, #F9FAF5);
-  border: 1px solid var(--color-border-light, #EAE6DF);
-  border-radius: 6px;
+.progressDots {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: all 0.35s ease;
+  gap: 8px;
 }
 
-.stepCardActive {
-  border-color: var(--color-gold, #C9A24A);
-  background-color: #FFFFFF;
-  box-shadow: 0 12px 30px -8px rgba(201, 162, 74, 0.14);
+.dotBtn {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--color-border-light, #EAE6DF);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
 }
 
-.stepNumWrap {
+.dotActive {
+  background-color: var(--color-gold, #C9A24A);
+  width: 44px;
+}
+
+/* Right: Content Col */
+.contentCol {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  min-height: 320px;
 }
 
-.stepNum {
-  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: 1.5rem;
-  color: var(--color-steel-grey, #8E99A4);
-  line-height: 1;
-  transition: color 0.3s ease;
+.chapterCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: cardSlideIn 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.stepCardActive .stepNum {
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.categoryTag {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--color-gold, #C9A24A);
-  font-weight: 600;
 }
 
-.stepLine {
-  flex: 1;
-  height: 1px;
-  background-color: var(--color-border-light, #EAE6DF);
-}
-
-.stepName {
+.chapterTitle {
   font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: var(--color-navy, #11172D);
   margin: 0;
 }
 
-.stepDesc {
+.chapterSummary {
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+  line-height: 1.6;
+  color: var(--color-navy, #11172D);
+  font-weight: 500;
+  margin: 0;
+}
+
+.chapterDesc {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  line-height: 1.75;
   color: #4B5563;
   margin: 0;
+  max-width: 58ch;
+}
+
+.trustSeal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-light, #EAE6DF);
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey, #8E99A4);
+}
+
+.sealDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .corridorBanner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-
-  .cArrow {
-    display: none;
-  }
-
-  .stepsGrid {
+@media (max-width: 860px) {
+  .stage {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hugeAnchorNum {
+    font-size: 5rem;
   }
 }

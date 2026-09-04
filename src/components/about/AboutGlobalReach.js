@@ -5,117 +5,148 @@ import { useGSAP } from '@gsap/react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import styles from './AboutGlobalReach.module.css';
 
-const REGIONS = [
-  { name: 'North America', hub: 'East & West Coast Entry Ports' },
-  { name: 'Latin America / Central America', hub: 'Atlantic & Pacific Gateways' },
-  { name: 'United Kingdom / Europe', hub: 'Rotterdam, Felixstowe & Hamburg' },
-  { name: 'Middle East (GCC)', hub: 'Jebel Ali & Gulf Distribution' },
-  { name: 'West Africa', hub: 'Lagos, Tema & Regional Hubs' },
-];
-
-const PROCESS_STEPS = [
-  { num: '01', title: 'Order Confirmation', desc: 'Detailed substrate selection, page count specs, ruling lines, and packaging parameters locked.' },
-  { num: '02', title: 'Production & Converting', desc: 'High-speed automated reel-fed converting, precision flexographic ruling, folding, and binding.' },
-  { num: '03', title: 'Pre-Shipment AQL Inspection', desc: 'Standardized Acceptance Quality Limit inspection sampling for zero-defect container dispatch.' },
-  { num: '04', title: 'Export Documentation', desc: 'Full customs compliance: Bills of Lading, Certificate of Origin, Packing Lists, and phytosanitary filings.' },
-  { num: '05', title: 'Nhava Sheva / JNPT Port', desc: 'Direct transit from Palghar plant to India’s premier container port for bonded yard loading.' },
-  { num: '06', title: 'Destination Port Delivery', desc: 'Ocean container tracking and seamless handover to overseas importer, distributor or retailer.' },
+const EXPORT_STEPS = [
+  {
+    num: '01',
+    category: 'PHASE 01 · SPECIFICATION & CONFIRMATION',
+    title: 'Order Confirmation',
+    summary: 'Detailed technical specifications and packaging locked.',
+    desc: 'Substrate GSM, page count specs, ruling lines, binding formats, and carton packaging parameters verified and confirmed before machine scheduling.',
+  },
+  {
+    num: '02',
+    category: 'PHASE 02 · HIGH-SPEED CONVERTING',
+    title: 'Production & Converting',
+    summary: 'Automated converting and precision binding at Palghar.',
+    desc: 'Reel-fed flexographic ruling, automated folding, Smyth-sewn stitching, wire-O binding, and precision trimming executed on dedicated high-speed production lines.',
+  },
+  {
+    num: '03',
+    category: 'PHASE 03 · EXPORT QUALITY AUDIT',
+    title: 'Pre-Shipment AQL Inspection',
+    summary: 'Standardized sampling protocol before packing.',
+    desc: 'Every batch is sampled against defined Acceptance Quality Limit (AQL 2.5) standards for ruling alignment, burst strength, and edge integrity prior to carton packing.',
+  },
+  {
+    num: '04',
+    category: 'PHASE 04 · CUSTOMS & MARITIME COMPLIANCE',
+    title: 'Export Documentation',
+    summary: 'Full maritime and customs compliance paperwork.',
+    desc: 'Complete export filings: Commercial Invoice, Packing List, Certificate of Origin, Bill of Lading, and phytosanitary certificates prepared with zero discrepancies.',
+  },
+  {
+    num: '05',
+    category: 'PHASE 05 · PORT GATE-IN & DISPATCH',
+    title: 'Nhava Sheva / JNPT Transit',
+    summary: "Direct bonded corridor from Palghar to India's premier port.",
+    desc: 'Short transit distance from our Palghar plant to Nhava Sheva (JNPT) container terminals allows expedited port gate-in, container stuffing, and maritime loading.',
+  },
+  {
+    num: '06',
+    category: 'PHASE 06 · OVERSEAS DISCHARGE',
+    title: 'Destination Port Delivery',
+    summary: 'Seamless arrival across 5 global continental markets.',
+    desc: 'Ocean container dispatch with real-time shipment tracking, bill of lading releases, and smooth customs clearance for distributors across Africa, the Middle East, Europe, and the Americas.',
+  },
 ];
 
 export default function AboutGlobalReach() {
   const sectionRef = useRef(null);
-  const [activeStep, setActiveStep] = useState(0);
+  const [currentIdx, setCurrentIdx] = useState(0);
 
   useGSAP(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
 
-    // Sequential process highlight on scroll
+    const totalSteps = EXPORT_STEPS.length;
+
     ScrollTrigger.create({
       trigger: sectionRef.current,
-      start: 'top 50%',
-      end: 'bottom 70%',
+      start: 'top top',
+      end: `+=${totalSteps * 85}%`,
+      pin: true,
+      scrub: 0.6,
+      anticipatePin: 1,
       onUpdate: (self) => {
         const step = Math.min(
-          PROCESS_STEPS.length - 1,
-          Math.floor(self.progress * PROCESS_STEPS.length)
+          totalSteps - 1,
+          Math.floor(self.progress * totalSteps)
         );
-        setActiveStep(step);
+        setCurrentIdx(step);
       },
     });
   }, { scope: sectionRef });
 
+  const active = EXPORT_STEPS[currentIdx];
+
   return (
-    <section className={styles.section} ref={sectionRef} id="global-reach" aria-label="Global Reach & Export Process">
+    <section className={styles.section} ref={sectionRef} id="step-by-step-workflow" aria-label="Step-by-Step Export Workflow">
       <div className={styles.inner}>
 
         {/* Section Header */}
         <div className={styles.header}>
-          <span className={styles.eyebrow}>GLOBAL REACH &amp; EXPORT PIPELINE</span>
+          <span className={styles.eyebrow}>STEP-BY-STEP WORKFLOW</span>
           <h2 className={styles.headline}>
-            From Palghar<br />
-            <em>to the World.</em>
+            From Order to <em>Global Delivery.</em>
           </h2>
-          <p className={styles.copy}>
-            From our facility in Palghar, Maharashtra, we export to distributors,
-            wholesalers and importers across Africa, the Middle East, Europe, North America
-            and Central America.
-          </p>
         </div>
 
-        {/* Geographic Destination Badges */}
-        <div className={styles.regionGrid}>
-          {REGIONS.map((r) => (
-            <div key={r.name} className={styles.regionCard}>
-              <span className={styles.regionDot} />
-              <div className={styles.regionText}>
-                <span className={styles.regionName}>{r.name}</span>
-                <span className={styles.regionHub}>{r.hub}</span>
+        {/* Pinned Editorial Storytelling Stage */}
+        <div className={styles.stage}>
+
+          {/* Left: Persistent Large Anchor Number */}
+          <div className={styles.anchorCol}>
+            <div className={styles.anchorWrapper}>
+              <span className={styles.hugeAnchorNum} key={active.num}>
+                {active.num}
+              </span>
+              <div className={styles.stepBadge}>
+                EXPORT STEP 0{currentIdx + 1} OF 0{EXPORT_STEPS.length}
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Strategic Corridor Graphic */}
-        <div className={styles.corridorBanner}>
-          <div className={styles.corridorStep}>
-            <span className={styles.cLabel}>ORIGIN</span>
-            <span className={styles.cValue}>Palghar Manufacturing Plant</span>
-          </div>
-          <div className={styles.cArrow}>→</div>
-          <div className={styles.corridorStep}>
-            <span className={styles.cLabel}>PORT OF DISPATCH</span>
-            <span className={styles.cValue}>Nhava Sheva (JNPT) Port</span>
-          </div>
-          <div className={styles.cArrow}>→</div>
-          <div className={styles.corridorStep}>
-            <span className={styles.cLabel}>DESTINATIONS</span>
-            <span className={styles.cValue}>5 Global Continental Markets</span>
-          </div>
-        </div>
-
-        {/* 6-Step Sequential Export Process */}
-        <div className={styles.processArea}>
-          <div className={styles.processHeader}>
-            <span className={styles.processEyebrow}>STEP-BY-STEP WORKFLOW</span>
-            <h3 className={styles.processTitle}>The Twofold Export Sequence</h3>
+            {/* Micro Progress Indicator */}
+            <div className={styles.progressDots}>
+              {EXPORT_STEPS.map((step, i) => (
+                <button
+                  key={step.num}
+                  type="button"
+                  onClick={() => setCurrentIdx(i)}
+                  className={`${styles.dotBtn} ${i === currentIdx ? styles.dotActive : ''}`}
+                  aria-label={`Go to export step ${step.num}: ${step.title}`}
+                />
+              ))}
+            </div>
           </div>
 
-          <div className={styles.stepsGrid}>
-            {PROCESS_STEPS.map((s, idx) => (
-              <div
-                key={s.num}
-                className={`${styles.stepCard} ${idx <= activeStep ? styles.stepCardActive : ''}`}
-              >
-                <div className={styles.stepNumWrap}>
-                  <span className={styles.stepNum}>{s.num}</span>
-                  <div className={styles.stepLine} />
-                </div>
-                <h4 className={styles.stepName}>{s.title}</h4>
-                <p className={styles.stepDesc}>{s.desc}</p>
+          {/* Right: Smoothly Transitioning Content */}
+          <div className={styles.contentCol}>
+            <div className={styles.chapterCard} key={active.num}>
+              
+              <div className={styles.categoryTag}>
+                {active.category}
               </div>
-            ))}
+
+              <h3 className={styles.chapterTitle}>
+                {active.title}
+              </h3>
+
+              <p className={styles.chapterSummary}>
+                {active.summary}
+              </p>
+
+              <p className={styles.chapterDesc}>
+                {active.desc}
+              </p>
+
+              <div className={styles.trustSeal}>
+                <span className={styles.sealDot} />
+                DIRECT FACTORY EXPORT · NHAVA SHEVA (JNPT) CORRIDOR
+              </div>
+
+            </div>
           </div>
+
         </div>
 
       </div>

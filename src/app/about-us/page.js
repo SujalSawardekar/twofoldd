@@ -8,7 +8,6 @@ import AboutQuality from '@/components/about/AboutQuality';
 import AboutMission from '@/components/about/AboutMission';
 import AboutVision from '@/components/about/AboutVision';
 import AboutInsights from '@/components/about/AboutInsights';
-import AboutWhyPartner from '@/components/about/AboutWhyPartner';
 import AboutCTA from '@/components/about/AboutCTA';
 
 export const metadata = {
@@ -34,7 +33,7 @@ export default function AboutUsPage() {
       {/* 05 — INFRASTRUCTURE */}
       <AboutInfrastructure />
 
-      {/* 06 — GLOBAL REACH & EXPORT PIPELINE */}
+      {/* 06 — STEP-BY-STEP WORKFLOW (Pinned Editorial Storytelling) */}
       <AboutGlobalReach />
 
       {/* 07 — QUALITY & COMPLIANCE */}
@@ -49,10 +48,7 @@ export default function AboutUsPage() {
       {/* 10 — DEDICATED INSIGHTS */}
       <AboutInsights />
 
-      {/* 11 — WHY PARTNER WITH US (pinned anchor numeral) */}
-      <AboutWhyPartner />
-
-      {/* 12 — FINAL CTA */}
+      {/* 11 — FINAL CTA */}
       <AboutCTA />
     </main>
   );

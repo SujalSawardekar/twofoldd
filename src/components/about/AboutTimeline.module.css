@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════════════
    ABOUT TIMELINE — Chapter 03
-   Pinned Visual Milestone Storyteller
+   Standardized Uniform Milestone Storyteller
    ══════════════════════════════════════════════════════ */
 
 .section {
@@ -62,48 +62,75 @@
 /* Pinned Timeline Container */
 .pinnedTimeline {
   display: grid;
-  grid-template-columns: 1.15fr 40px 1.25fr;
-  gap: clamp(2rem, 4vw, 4.5rem);
+  grid-template-columns: 1fr 48px 1.3fr;
+  gap: clamp(2rem, 5vw, 5.5rem);
   align-items: center;
   min-height: 380px;
 }
 
-/* Left: Oversized Anchor Year */
-.yearCol {
+/* Left: Standardized Persistent Anchor Number */
+.numCol {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 1.5rem;
 }
 
-.tagLabel {
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold, #C9A24A);
+.numWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-.largeYear {
+.hugeNum {
   font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-size: clamp(5.5rem, 11vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   color: var(--color-navy, #11172D);
-  min-height: 1.2em;
-  transition: all 0.3s ease;
+  animation: numFadeIn 0.35s ease forwards;
+}
+
+@keyframes numFadeIn {
+  from {
+    opacity: 0.3;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .stepIndicator {
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--color-steel-grey, #8E99A4);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-gold, #C9A24A);
   text-transform: uppercase;
+}
+
+.progressDots {
+  display: flex;
+  gap: 8px;
+}
+
+.dotBtn {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--color-border-light, #EAE6DF);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  background-color: var(--color-gold, #C9A24A);
+  width: 44px;
 }
 
 /* Center: Track */
@@ -158,17 +185,17 @@
   box-shadow: 0 0 0 4px rgba(201, 162, 74, 0.2);
 }
 
-/* Right: Content */
+/* Right: Content Col with Uniform Layout */
 .contentCol {
   display: flex;
   align-items: center;
-  min-height: 240px;
+  min-height: 280px;
 }
 
 .cardContent {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.15rem;
   animation: fadeInContent 0.4s ease forwards;
 }
 
@@ -183,14 +210,35 @@
   }
 }
 
+.badgeWrap {
+  display: flex;
+}
+
+.badgePill {
+  display: inline-flex;
+  padding: 5px 12px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-light, #EAE6DF);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
 .milestoneTitle {
   font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.015em;
   color: var(--color-navy, #11172D);
   margin: 0;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
 }
 
 .milestoneDesc {
@@ -199,7 +247,28 @@
   line-height: 1.8;
   color: #4B5563;
   margin: 0;
-  max-width: 48ch;
+  max-width: 52ch;
+}
+
+.trustNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border-light, #EAE6DF);
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey, #8E99A4);
+}
+
+.noteDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
 }
 
 /* Responsive */
@@ -213,7 +282,7 @@
     display: none;
   }
 
-  .largeYear {
-    font-size: 2.5rem;
+  .hugeNum {
+    font-size: 4.5rem;
   }
 }
