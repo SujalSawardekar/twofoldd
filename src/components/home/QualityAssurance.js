@@ -49,77 +49,74 @@ export default function QualityAssurance() {
     const isDesktop = window.innerWidth > 840;
 
     if (isDesktop) {
-      // ── PINNED SCROLL TIMELINE MATCHING &FOLD WEBFLOW REFERENCE ──
-      // Stage 1: Header visible, Card 1 top (y:0), Card 2 mid (y:90px), Card 3 low (y:180px)
-      // Stage 2: As scroll starts, Header glides completely UPWARD off-screen (y: -280, opacity: 0)
-      // Stage 3: Card 1 moves UPWARD (0 -> -170px) to fill header space.
-      //          Card 2 moves UPWARD (90px -> -170px) to align level with Card 1.
-      // Stage 4: Card 3 moves UPWARD (180px -> -170px) to align level with Cards 1 & 2.
-      // Unpins cleanly once all 3 cards are aligned side-by-side at y: -170px with ZERO empty top space.
+      // ── HIGH-PERFORMANCE SCRUBBED SCROLL TIMELINE ──
+      // Fast, responsive scrub (end: '+=80%', scrub: 0.3)
+      // Header fades out instantly & moves completely off-screen (y: -300)
+      // Cards ascend smoothly to y: -140, completely eliminating top empty space
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=200%',
+          end: '+=80%',
           pin: true,
-          scrub: 1,
+          scrub: 0.3,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
-      // Step 1: Move Header completely UPWARD off-screen & fade out quickly
+      // Step 1: Header glides UPWARD and fades out completely in the first 25% of scroll
       if (headerRef.current) {
         tl.to(
           headerRef.current,
           {
-            y: -280,
+            y: -300,
             opacity: 0,
-            ease: 'power1.inOut',
-            duration: 1,
+            ease: 'power2.out',
+            duration: 0.4,
           },
           0
         );
       }
 
-      // Step 2: Card 01 moves UPWARD into the header space (0 -> -170px)
+      // Step 2: Card 01 moves UPWARD into top space (0 -> -140px)
       tl.to(
         cards[0],
         {
-          y: -170,
+          y: -140,
           ease: 'power1.inOut',
-          duration: 1.2,
+          duration: 0.8,
         },
         0
       );
 
-      // Step 3: Card 02 moves UPWARD (90px -> -170px) to level with Card 1
+      // Step 3: Card 02 moves UPWARD (65px -> -140px) to level with Card 1
       tl.fromTo(
         cards[1],
-        { y: 90 },
+        { y: 65 },
         {
-          y: -170,
+          y: -140,
           ease: 'power1.inOut',
-          duration: 1.3,
+          duration: 0.8,
         },
-        0.3
+        0.15
       );
 
-      // Step 4: Card 03 moves UPWARD (180px -> -170px) to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD (130px -> -140px) to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 180 },
+        { y: 130 },
         {
-          y: -170,
+          y: -140,
           ease: 'power1.inOut',
-          duration: 1.3,
+          duration: 0.8,
         },
-        1.4
+        0.7
       );
 
-      // Step 5: Dwell hold so user sees all 3 cards aligned side-by-side at top
-      tl.to({}, { duration: 0.5 });
+      // Step 5: Brief dwell hold for card alignment
+      tl.to({}, { duration: 0.2 });
     }
   }, { scope: sectionRef });
 
