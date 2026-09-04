@@ -227,9 +227,8 @@
 .giantLogoImg {
   width: 100%;
   height: auto;
-  min-height: 280px;
-  max-height: 520px;
-  transform: scale(1.15);
+  max-height: 420px;
+  transform: scale(1.05);
   transform-origin: center top;
   object-fit: contain;
   opacity: 0.95;
