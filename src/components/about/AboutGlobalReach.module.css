@@ -1,0 +1,266 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT GLOBAL REACH — Chapter 06
+   Editorial World Corridors & 6-Step Export Pipeline
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: #FFFFFF;
+  color: var(--color-navy, #11172D);
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+.copy {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.7;
+  color: #4B5563;
+  max-width: 60ch;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Region Destination Grid */
+.regionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.regionCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  background-color: var(--color-warm-white, #F9FAF5);
+  border: 1px solid var(--color-border-light, #EAE6DF);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.regionCard:hover {
+  border-color: var(--color-gold, #C9A24A);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(17, 23, 45, 0.08);
+}
+
+.regionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.regionText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.regionName {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-navy, #11172D);
+}
+
+.regionHub {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.78rem;
+  color: #6B7280;
+}
+
+/* Strategic Corridor Banner */
+.corridorBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2.5rem);
+  background-color: var(--color-navy, #11172D);
+  color: #FFFFFF;
+  border-radius: 6px;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  box-shadow: 0 16px 36px -8px rgba(17, 23, 45, 0.2);
+}
+
+.corridorStep {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cLabel {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-gold, #C9A24A);
+}
+
+.cValue {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  color: #FAF8F5;
+}
+
+.cArrow {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Process Area */
+.processArea {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.processHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.processEyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--color-gold, #C9A24A);
+  text-transform: uppercase;
+}
+
+.processTitle {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  color: var(--color-navy, #11172D);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Steps Grid */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.stepCard {
+  padding: 1.75rem;
+  background-color: var(--color-warm-white, #F9FAF5);
+  border: 1px solid var(--color-border-light, #EAE6DF);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.35s ease;
+}
+
+.stepCardActive {
+  border-color: var(--color-gold, #C9A24A);
+  background-color: #FFFFFF;
+  box-shadow: 0 12px 30px -8px rgba(201, 162, 74, 0.14);
+}
+
+.stepNumWrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stepNum {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: 1.5rem;
+  color: var(--color-steel-grey, #8E99A4);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.stepCardActive .stepNum {
+  color: var(--color-gold, #C9A24A);
+  font-weight: 600;
+}
+
+.stepLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border-light, #EAE6DF);
+}
+
+.stepName {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.stepDesc {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .corridorBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .cArrow {
+    display: none;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}

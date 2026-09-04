@@ -1,0 +1,199 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT QUALITY — Chapter 07
+   Minimalist Editorial Spread with AQL Inspection Detail
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: var(--color-warm-white, #F9FAF5);
+  color: var(--color-navy, #11172D);
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(3rem, 6vw, 6.5rem);
+  align-items: center;
+}
+
+/* Media Col */
+.mediaCol {
+  position: relative;
+  width: 100%;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(17, 23, 45, 0.14);
+}
+
+.aqlImg {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.04);
+}
+
+.inspectionBadge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 6px 14px;
+  background-color: rgba(17, 23, 45, 0.88);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.badgePulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
+}
+
+/* Text Col */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.mainStatement {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--color-navy, #11172D);
+  font-weight: 500;
+  margin: 0;
+}
+
+.auditsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--color-border-light, #EAE6DF);
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.auditRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.auditNum {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: 1.15rem;
+  color: var(--color-gold, #C9A24A);
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.auditBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.auditTitle {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.auditDesc {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #4B5563;
+  margin: 0;
+}
+
+.footerNote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.noteLabel {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.noteText {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.88rem;
+  color: #6B7280;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

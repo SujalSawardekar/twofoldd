@@ -1,0 +1,198 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT HERO — Chapter 01
+   Editorial Asymmetric Spread with Palghar Facility Reveal
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: var(--color-warm-white, #F9FAF5);
+  color: var(--color-navy, #11172D);
+  padding: clamp(6.5rem, 11vw, 10rem) 0 clamp(4rem, 7vw, 6.5rem) 0;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey, #8E99A4);
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.breadLink {
+  color: var(--color-steel-grey, #8E99A4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadLink:hover {
+  color: var(--color-navy, #11172D);
+}
+
+.breadSep {
+  color: var(--color-border, #D5D5D5);
+}
+
+.breadCurrent {
+  color: var(--color-gold, #C9A24A);
+  font-weight: 600;
+}
+
+/* Asymmetric Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+}
+
+/* Left: Typographic Column */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+.subtitle {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
+  color: #374151;
+  max-width: 46ch;
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* Metadata Pills */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 6px 14px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light, #EAE6DF);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy, #11172D);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.pillDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
+}
+
+/* Right: Image Column */
+.imageCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(17, 23, 45, 0.12);
+  background-color: #E6E3DC;
+}
+
+.facilityImg {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.04);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageFrame:hover .facilityImg {
+  transform: scale(1.07);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 65%, rgba(17, 23, 45, 0.15) 100%);
+}
+
+.imageCaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey, #8E99A4);
+  padding: 0 4px;
+}
+
+.captionLine {
+  font-weight: 600;
+  color: var(--color-navy, #11172D);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .imageFrame {
+    aspect-ratio: 16 / 10;
+  }
+}

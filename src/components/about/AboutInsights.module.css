@@ -1,0 +1,219 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT INSIGHTS — Chapter 10
+   Manufacturing & Export Knowledge Cards
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: var(--color-warm-white, #F9FAF5);
+  color: var(--color-navy, #11172D);
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+.copy {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.65;
+  color: #4B5563;
+  max-width: 54ch;
+  margin: 0;
+}
+
+.allBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid var(--color-border-light, #EAE6DF);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy, #11172D);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.allBtn:hover {
+  border-color: var(--color-gold, #C9A24A);
+  color: var(--color-gold, #C9A24A);
+  transform: translateX(4px);
+}
+
+/* 3-Col Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-light, #EAE6DF);
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold, #C9A24A);
+  box-shadow: 0 16px 36px -8px rgba(17, 23, 45, 0.12);
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #E6E3DC;
+}
+
+.cardImg {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .cardImg {
+  transform: scale(1.06);
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  background: rgba(17, 23, 45, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 3px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.6rem;
+}
+
+.postDate {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.72rem;
+  color: var(--color-steel-grey, #8E99A4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.postTitle {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.card:hover .postTitle {
+  color: var(--color-gold, #C9A24A);
+}
+
+.postExcerpt {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #4B5563;
+  margin: 0;
+  flex: 1;
+}
+
+.readMore {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy, #11172D);
+  margin-top: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.card:hover .readMore {
+  color: var(--color-gold, #C9A24A);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

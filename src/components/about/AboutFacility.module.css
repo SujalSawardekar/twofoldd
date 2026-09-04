@@ -1,0 +1,208 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT FACILITY — Chapter 04
+   Immersive Panoramic Facility Spread + Floating Card
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: #FFFFFF;
+  color: var(--color-navy, #11172D);
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+/* Immersive Stage */
+.stage {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -15px rgba(17, 23, 45, 0.16);
+  min-height: clamp(480px, 65vh, 660px);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  box-sizing: border-box;
+}
+
+.imageCanvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.facilityImg {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+}
+
+.canvasScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 23, 45, 0.1) 0%,
+    rgba(17, 23, 45, 0.4) 60%,
+    rgba(17, 23, 45, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Editorial Glass Card */
+.floatingCard {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  max-width: 620px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.locationPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 5px 12px;
+  background-color: var(--color-navy, #11172D);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
+}
+
+.clusterPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background-color: #ECEEE7;
+  color: #374151;
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.statementText {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.descriptionText {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  line-height: 1.7;
+  color: #4B5563;
+  margin: 0;
+}
+
+.metaRow {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.metaPoint {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metaKey {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.metaVal {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-navy, #11172D);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stage {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .floatingCard {
+    max-width: 100%;
+  }
+}

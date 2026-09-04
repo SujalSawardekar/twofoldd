@@ -1,0 +1,160 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT INFRASTRUCTURE — Chapter 05
+   Oversized Numbered Editorial Statements (No Generic Cards)
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: var(--color-warm-white, #F9FAF5);
+  color: var(--color-navy, #11172D);
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+.headerCopy {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.7;
+  color: #4B5563;
+  max-width: 58ch;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Capability List */
+.capabilityList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.capabilityRow {
+  display: grid;
+  grid-template-columns: 140px 1fr 60px;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  padding: clamp(2rem, 4vw, 3.2rem) 0;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+  transition: background-color 0.3s ease;
+}
+
+.capabilityRow:hover {
+  background-color: rgba(201, 162, 74, 0.03);
+}
+
+.numberCol {
+  display: flex;
+  align-items: center;
+}
+
+.hugeNum {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  line-height: 1;
+  color: var(--color-navy, #11172D);
+  opacity: 0.3;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.capabilityRow:hover .hugeNum {
+  opacity: 1;
+  color: var(--color-gold, #C9A24A);
+}
+
+.bodyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.metaBadge {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.capTitle {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.capDesc {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  line-height: 1.7;
+  color: #4B5563;
+  margin: 0;
+  max-width: 65ch;
+}
+
+.arrowCol {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--color-steel-grey, #8E99A4);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.capabilityRow:hover .arrowCol {
+  transform: translateX(6px);
+  color: var(--color-gold, #C9A24A);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .capabilityRow {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .arrowCol {
+    display: none;
+  }
+}

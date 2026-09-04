@@ -1,0 +1,229 @@
+/* ══════════════════════════════════════════════════════
+   ABOUT WHY PARTNER — Chapter 11
+   Pinned Editorial Storytelling Sequence (No 6 Cards)
+   ══════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: #FFFFFF;
+  color: var(--color-navy, #11172D);
+  padding: clamp(5rem, 8vw, 7rem) 0;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-border-light, #EAE6DF);
+}
+
+.inner {
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-weight: 400;
+  color: var(--color-navy, #11172D);
+}
+
+/* Pinned Stage */
+.stage {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: center;
+  min-height: 420px;
+}
+
+/* Left: Persistent Anchor Number */
+.anchorCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.anchorWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hugeAnchorNum {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(6.5rem, 14vw, 13rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--color-navy, #11172D);
+  animation: numPop 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes numPop {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.chapterBadge {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.progressDots {
+  display: flex;
+  gap: 8px;
+}
+
+.dotBtn {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--color-border-light, #EAE6DF);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  background-color: var(--color-gold, #C9A24A);
+  width: 44px;
+}
+
+/* Right: Content Col */
+.contentCol {
+  display: flex;
+  align-items: center;
+  min-height: 320px;
+}
+
+.chapterCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: cardSlideIn 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.categoryTag {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24A);
+}
+
+.chapterTitle {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-navy, #11172D);
+  margin: 0;
+}
+
+.chapterSummary {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+  line-height: 1.6;
+  color: var(--color-navy, #11172D);
+  font-weight: 500;
+  margin: 0;
+}
+
+.chapterDesc {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  line-height: 1.75;
+  color: #4B5563;
+  margin: 0;
+  max-width: 58ch;
+}
+
+.trustSeal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-light, #EAE6DF);
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel-grey, #8E99A4);
+}
+
+.sealDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C9A24A);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .stage {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hugeAnchorNum {
+    font-size: 5rem;
+  }
+}
