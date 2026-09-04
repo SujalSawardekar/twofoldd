@@ -92,10 +92,10 @@ export default function QualityAssurance() {
         0
       );
 
-      // Step 3: Card 02 moves UPWARD from deep lower position (400px -> -160px) to level with Card 1
+      // Step 3: Card 02 moves UPWARD (280px -> -160px) so its bottom half reveals & aligns level
       tl.fromTo(
         cards[1],
-        { y: 400 },
+        { y: 280 },
         {
           y: -160,
           ease: 'power1.inOut',
@@ -104,10 +104,10 @@ export default function QualityAssurance() {
         0.1
       );
 
-      // Step 4: Card 03 moves UPWARD from deep lower position (800px -> -160px) to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD (560px -> -160px) from off-screen to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 800 },
+        { y: 560 },
         {
           y: -160,
           ease: 'power1.inOut',
