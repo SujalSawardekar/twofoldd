@@ -130,11 +130,11 @@ export default function Footer() {
 
           </div>
 
-          {/* ── BOTTOM SECTION: GIANT BRAND LOGO WITH SUBTLE GRADIENT (Two Fold White.png) ── */}
+          {/* ── BOTTOM SECTION: GIANT BRAND LOGO WITH DARK GRADIENT MASK OVERLAY (Two Fold.png) ── */}
           <div className={styles.giantLogoContainer}>
             <div className={styles.gradientMaskOverlay} />
             <Image
-              src="/Logo/Two Fold White.png"
+              src="/Logo/Two Fold.png"
               alt="Twofold"
               width={1100}
               height={320}

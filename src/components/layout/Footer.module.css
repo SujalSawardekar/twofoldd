@@ -203,14 +203,14 @@
   margin: 0;
 }
 
-/* Giant Brand Logo with Gold Subtle Gradient Overlay */
+/* Giant Brand Logo with Dark Gradient Mask Overlay merging into background */
 .giantLogoContainer {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem 0;
+  padding: 1.5rem 0;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 0.5rem;
@@ -219,7 +219,7 @@
 .gradientMaskOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 0%, rgba(201, 162, 74, 0.12) 50%, rgba(17, 23, 45, 0.2) 100%);
+  background: linear-gradient(180deg, #11172D 0%, rgba(17, 23, 45, 0.25) 50%, #11172D 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -227,16 +227,16 @@
 .giantLogoImg {
   width: 100%;
   height: auto;
-  max-height: 230px;
+  max-height: 240px;
   object-fit: contain;
-  opacity: 0.92;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  opacity: 0.25;
+  filter: brightness(1.2) contrast(1.1) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1), opacity 0.5s ease;
 }
 
 .giantLogoContainer:hover .giantLogoImg {
   transform: scale(1.02);
-  opacity: 1;
+  opacity: 0.38;
 }
 
 /* Bottom Bar */
