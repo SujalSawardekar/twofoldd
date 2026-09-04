@@ -210,16 +210,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 0;
+  padding: 2rem 0 0.5rem;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .gradientMaskOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 30%, rgba(17, 23, 45, 0.6) 65%, #11172D 100%);
+  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 35%, rgba(17, 23, 45, 0.55) 68%, #11172D 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -227,10 +227,10 @@
 .giantLogoImg {
   width: 100%;
   height: auto;
-  max-height: 240px;
+  max-height: 380px;
   object-fit: contain;
-  opacity: 0.9;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  opacity: 0.92;
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.5));
 }
 
 /* Bottom Bar */

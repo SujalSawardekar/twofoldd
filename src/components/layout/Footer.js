@@ -136,8 +136,8 @@ export default function Footer() {
             <Image
               src="/Logo/Two Fold.png"
               alt="Twofold"
-              width={1100}
-              height={320}
+              width={1400}
+              height={450}
               className={styles.giantLogoImg}
             />
           </div>
