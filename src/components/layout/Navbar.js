@@ -9,10 +9,10 @@ import styles from './Navbar.module.css';
 
 const NAV_ITEMS = [
   { index: '01', name: 'Home', path: '/' },
-  { index: '02', name: 'About & Infrastructure', path: '/about-us' },
-  { index: '03', name: 'Export Products', path: '/products' },
-  { index: '04', name: 'Paper Heritage & Blog', path: '/blog' },
-  { index: '05', name: 'Contact & Inquiries', path: '/contact-us' },
+  { index: '02', name: 'About Us', path: '/about-us' },
+  { index: '03', name: 'Products', path: '/products' },
+  { index: '04', name: 'Blog & Insights', path: '/blog' },
+  { index: '05', name: 'Contact Us', path: '/contact-us' },
 ];
 
 export default function Navbar() {
