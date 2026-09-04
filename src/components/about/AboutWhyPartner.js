@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
-import { gsap } from '@/lib/gsap';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import styles from './AboutWhyPartner.module.css';
 
 const PARTNER_CHAPTERS = [
