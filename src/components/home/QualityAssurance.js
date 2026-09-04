@@ -49,65 +49,52 @@ export default function QualityAssurance() {
     const isDesktop = window.innerWidth > 840;
 
     if (isDesktop) {
-      // ── PINNED SCROLL TIMELINE MATCHING &FOLD WEBFLOW REFERENCE ──
-      // Stage 1 (Screenshot 1): Header visible, Card 1 top (y:0), Card 2 mid (y:75px), Card 3 low (y:150px)
-      // Stage 2 (Screenshot 2): Header shifts UPWARD off-screen as scroll begins
-      // Stage 3 (Screenshot 3): Card 2 moves UPWARD from 75px -> 0px to align with Card 1
-      // Stage 4 (Screenshot 4): Card 3 moves UPWARD from 150px -> 0px to align with Card 1 & 2
-      // Unpins cleanly once all 3 cards are aligned side-by-side at y: 0
-
+      // ── ULTRA-SMOOTH UPWARD CARD ALIGNMENT (NO PINNING, ZERO TOP VOID) ──
+      // Card 01 starts at top (y: 0).
+      // Card 02 glides UPWARD smoothly from 70px -> 0.
+      // Card 03 glides UPWARD smoothly from 140px -> 0.
+      // End state: All 3 cards align at the exact SAME top position (y: 0) smoothly!
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top top',
-          end: '+=230%',
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+          start: 'top 60%',
+          toggleActions: 'play none none reverse',
         },
       });
 
-      // Step 1: Move Header UPWARD off-screen as scroll begins (Screenshot 2)
+      // Header entrance
       if (headerRef.current) {
-        tl.to(
-          headerRef.current,
-          {
-            y: -130,
-            opacity: 0.15,
-            ease: 'none',
-            duration: 1.2,
-          },
+        tl.fromTo(
+          headerRef.current.children,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out' },
           0
         );
       }
 
-      // Step 2: Card 02 moves UPWARD from 75px -> 0px (Screenshot 2 -> Screenshot 3)
+      // Card 01 entrance fade
+      tl.fromTo(
+        cards[0],
+        { opacity: 0.5 },
+        { opacity: 1, duration: 0.6, ease: 'power2.out' },
+        0.1
+      );
+
+      // Card 02 glides UPWARD from 70px to 0
       tl.fromTo(
         cards[1],
-        { y: 75 },
-        {
-          y: 0,
-          ease: 'none',
-          duration: 1.4,
-        },
-        0.3
+        { y: 70, opacity: 0.5 },
+        { y: 0, opacity: 1, duration: 1.0, ease: 'power2.out' },
+        0.2
       );
 
-      // Step 3: Card 03 moves UPWARD from 150px -> 0px (Screenshot 3 -> Screenshot 4)
+      // Card 03 glides UPWARD from 140px to 0
       tl.fromTo(
         cards[2],
-        { y: 150 },
-        {
-          y: 0,
-          ease: 'none',
-          duration: 1.4,
-        },
-        1.5
+        { y: 140, opacity: 0.5 },
+        { y: 0, opacity: 1, duration: 1.15, ease: 'power2.out' },
+        0.35
       );
-
-      // Step 4: Dwell hold so user sees all 3 cards aligned side-by-side before unpinning
-      tl.to({}, { duration: 0.5 });
     }
   }, { scope: sectionRef });
 
@@ -115,7 +102,7 @@ export default function QualityAssurance() {
     <section className={styles.section} ref={sectionRef} id="quality-assurance">
       <div className={styles.inner}>
 
-        {/* ── HEADER (Shifts UPWARD off-screen on scroll) ── */}
+        {/* ── COMPACT HEADER (Zero Empty Gap) ── */}
         <div className={styles.header} ref={headerRef}>
           <span className={styles.eyebrow}>04 / QUALITY ASSURANCE</span>
           
@@ -124,10 +111,6 @@ export default function QualityAssurance() {
             <span className={styles.headlineRow}>Uncompromising Standards for</span>
             <span className={styles.headlineRow}>Global Export Quality.</span>
           </h2>
-
-          <p className={styles.description}>
-            Every Twofold notebook and stationery item undergoes multi-stage technical inspection for substrate integrity, ruling accuracy, binding strength, and container-export compliance before dispatch.
-          </p>
         </div>
 
         {/* ── 3-COLUMN STAGGERED EDITORIAL CARDS ── */}

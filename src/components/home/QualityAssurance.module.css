@@ -1,24 +1,21 @@
 /* ═══════════════════════════════════════════════════════════════
    TWOFOLD — 04 / QUALITY ASSURANCE
-   Full Viewport Width & Zero Empty Gap Layout:
-   - Removed awkward vertical space between header and cards
-   - Expanded container width (max-width: 1720px) to fill left/right margins
-   - Enlarged cards & arch photography crops
-   - 4-Stage pinned scroll experience matching &Fold Webflow
+   Clean Compact Layout & Full Card Visibility:
+   - Compact header (Eyebrow + 2-Line Headline) for ZERO top void.
+   - Expanded container width (max-width: 1720px) filling left & right margins.
+   - 100% of Card 01, Card 02, and Card 03 (Title, Arch Photo, Description,
+     and EXPLORE Button) fully visible inside viewport at all times.
+   - Smooth upward card alignment animation without stuck pinning or floating text.
    ═══════════════════════════════════════════════════════════════ */
 
 .section {
   position: relative;
   background-color: #F9FAF5;
   color: #11172D;
-  padding: clamp(1.8rem, 3vh, 2.8rem) 0 clamp(2.5rem, 4vh, 4rem);
+  padding: clamp(2rem, 3.5vh, 3.5rem) 0 clamp(3rem, 5vh, 5rem);
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing: border-box;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .inner {
@@ -29,11 +26,11 @@
   width: 100%;
 }
 
-/* ── HEADER (Shifts UPWARD off-screen on scroll) ── */
+/* ── COMPACT HEADER (Zero Empty Gap) ── */
 .header {
   text-align: center;
-  max-width: 880px;
-  margin: 0 auto clamp(0.75rem, 1.2vh, 1.25rem);
+  max-width: 860px;
+  margin: 0 auto clamp(1.2rem, 2vh, 1.8rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,16 +64,6 @@
   white-space: nowrap;
 }
 
-.description {
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: clamp(0.9rem, 1vw, 1rem);
-  font-weight: 400;
-  line-height: 1.5;
-  color: #4A5568;
-  max-width: 640px;
-  margin: 0;
-}
-
 /* ── 3-CARD EDITORIAL GRID (Fills Full Desktop Width) ── */
 .cardGrid {
   display: grid;
@@ -92,31 +79,32 @@
   background-color: #EBE7E0;
   border: 1px solid rgba(17, 23, 45, 0.05);
   border-radius: 28px;
-  padding: clamp(2.2rem, 3.2vw, 3.2rem) clamp(1.8rem, 2.4vw, 2.4rem);
+  padding: clamp(1.8rem, 2.4vw, 2.6rem) clamp(1.4rem, 2vw, 2vw);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: clamp(500px, 60vh, 580px);
+  min-height: clamp(440px, 52vh, 510px);
   justify-content: space-between;
   box-shadow: 0 14px 40px rgba(17, 23, 45, 0.03);
-  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.3s ease;
   box-sizing: border-box;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
-/* Initial Staggered Positions (Screenshot 1) */
+/* Initial Staggered Positions */
 .cardStagger1 {
   transform: translateY(0);
 }
 
 .cardStagger2 {
-  transform: translateY(75px);
+  transform: translateY(70px);
 }
 
 .cardStagger3 {
-  transform: translateY(150px);
+  transform: translateY(140px);
 }
 
 /* Hover Interaction */
@@ -135,7 +123,7 @@
 
 .cardTitle {
   font-family: var(--font-display, 'The youngest serif', Georgia, serif);
-  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  font-size: clamp(1.45rem, 1.9vw, 1.85rem);
   font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 1.18;
@@ -146,11 +134,11 @@
 /* Arch / Capsule Crop Image Shape (Generous Size) */
 .imageWrapper {
   position: relative;
-  width: clamp(180px, 14vw, 235px);
-  height: clamp(230px, 18vw, 295px);
-  border-radius: 120px;
+  width: clamp(165px, 12.5vw, 215px);
+  height: clamp(210px, 16vw, 270px);
+  border-radius: 110px;
   overflow: hidden;
-  margin: clamp(0.85rem, 1.4vw, 1.4rem) 0;
+  margin: clamp(0.75rem, 1.2vw, 1.25rem) 0;
   box-shadow: 0 10px 28px rgba(17, 23, 45, 0.09);
   flex-shrink: 0;
   background-color: #DDD8CE;
@@ -172,18 +160,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1rem;
   width: 100%;
 }
 
 .cardDesc {
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: clamp(0.88rem, 1vw, 0.96rem);
+  font-size: clamp(0.85rem, 0.95vw, 0.93rem);
   font-weight: 400;
-  line-height: 1.58;
+  line-height: 1.55;
   color: #4A5568;
   margin: 0;
-  max-width: 320px;
+  max-width: 310px;
 }
 
 /* Explore Pill Button */
@@ -194,10 +182,10 @@
   background-color: #11172D;
   color: #FAF8F5;
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  padding: 11px 26px;
+  padding: 10px 25px;
   border-radius: 9999px;
   text-decoration: none;
   border: none;
@@ -229,8 +217,8 @@
   }
 
   .card {
-    min-height: 440px;
-    padding: 1.6rem 1.2rem;
+    min-height: 420px;
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -260,8 +248,8 @@
 
 @media (max-width: 480px) {
   .imageWrapper {
-    width: 160px;
-    height: 200px;
+    width: 150px;
+    height: 190px;
     border-radius: 80px;
   }
 }
