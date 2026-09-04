@@ -50,15 +50,16 @@ export default function QualityAssurance() {
 
     if (isDesktop) {
       // ── HIGH-PERFORMANCE SCRUBBED SCROLL TIMELINE ──
-      // Fast, responsive scrub (end: '+=80%', scrub: 0.3)
-      // Header fades out instantly & moves completely off-screen (y: -300)
-      // Cards ascend smoothly to y: -140, completely eliminating top empty space
+      // Tight initial spacing (12px gap between header description and Card 1)
+      // On scroll: Header glides UPWARD off-screen (y: -260, opacity: 0)
+      // All 3 cards elevate upward to y: -180px into the header position
+      // Full generous card height preserved (min-height: 520px+)
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=80%',
+          end: '+=90%',
           pin: true,
           scrub: 0.3,
           anticipatePin: 1,
@@ -71,44 +72,44 @@ export default function QualityAssurance() {
         tl.to(
           headerRef.current,
           {
-            y: -300,
+            y: -260,
             opacity: 0,
             ease: 'power2.out',
-            duration: 0.4,
+            duration: 0.35,
           },
           0
         );
       }
 
-      // Step 2: Card 01 moves UPWARD into top space (0 -> -140px)
+      // Step 2: Card 01 moves UPWARD into header top space (0 -> -180px)
       tl.to(
         cards[0],
         {
-          y: -140,
+          y: -180,
           ease: 'power1.inOut',
           duration: 0.8,
         },
         0
       );
 
-      // Step 3: Card 02 moves UPWARD (65px -> -140px) to level with Card 1
+      // Step 3: Card 02 moves UPWARD (70px -> -180px) to level with Card 1
       tl.fromTo(
         cards[1],
-        { y: 65 },
+        { y: 70 },
         {
-          y: -140,
+          y: -180,
           ease: 'power1.inOut',
           duration: 0.8,
         },
         0.15
       );
 
-      // Step 4: Card 03 moves UPWARD (130px -> -140px) to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD (140px -> -180px) to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 130 },
+        { y: 140 },
         {
-          y: -140,
+          y: -180,
           ease: 'power1.inOut',
           duration: 0.8,
         },
