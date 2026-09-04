@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './WhoWeServe.module.css';
 
@@ -36,27 +36,10 @@ const SEGMENTS = [
 ];
 
 export default function WhoWeServe() {
-  const [activeIdx, setActiveIdx] = useState(null);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const containerRef = useRef(null);
-
-  const handleMouseMove = useCallback((e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  }, []);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section 
-      className={styles.section} 
-      ref={containerRef} 
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => setActiveIdx(null)}
-      id="who-we-serve"
-    >
+    <section className={styles.section} id="who-we-serve">
       <div className={styles.inner}>
 
         {/* Top Header Row */}
@@ -67,8 +50,10 @@ export default function WhoWeServe() {
           </h2>
         </div>
 
-        {/* Large Typographic List with Floating Cursor-Following Image Overlay */}
-        <div className={styles.listWrapper}>
+        {/* Main 2-Column Grid: Typographic List (Left) + Pinned Image Panel (Right Side of Title) */}
+        <div className={styles.gridContainer}>
+
+          {/* Left: Typographic List */}
           <ul className={styles.list} role="list">
             {SEGMENTS.map((seg, i) => (
               <li
@@ -76,42 +61,40 @@ export default function WhoWeServe() {
                 className={`${styles.item} ${activeIdx === i ? styles.itemActive : ''} ${activeIdx !== null && activeIdx !== i ? styles.itemDim : ''}`}
                 onMouseEnter={() => setActiveIdx(i)}
               >
-                <div className={styles.itemHeader}>
+                <div className={styles.itemMain}>
                   <span className={styles.itemIdx}>{seg.idx}</span>
-                  <h3 className={styles.itemTitle}>{seg.title}</h3>
+                  <div className={styles.itemTitleGroup}>
+                    <h3 className={styles.itemTitle}>{seg.title}</h3>
+                    <p className={styles.itemDesc}>{seg.desc}</p>
+                  </div>
                 </div>
-                
-                <div className={styles.itemRight}>
-                  <p className={styles.itemDesc}>{seg.desc}</p>
-                  <span className={styles.itemArrow} aria-hidden="true">
-                    →
-                  </span>
-                </div>
+
+                <span className={styles.itemArrow} aria-hidden="true">
+                  →
+                </span>
               </li>
             ))}
           </ul>
 
-          {/* Floating Image Overlay (Directly overlaps title text on hover) */}
-          <div
-            className={`${styles.floatingOverlay} ${activeIdx !== null ? styles.floatingOverlayVisible : ''}`}
-            style={{
-              transform: `translate3d(${coords.x}px, ${coords.y}px, 0) translate(-40%, -50%)`,
-            }}
-          >
+          {/* Right Side: Pinned Image Preview Box */}
+          <div className={styles.rightImagePanel}>
             {SEGMENTS.map((seg, i) => (
               <div
                 key={seg.idx}
-                className={`${styles.floatingCard} ${activeIdx === i ? styles.floatingCardActive : ''}`}
+                className={`${styles.imageCard} ${activeIdx === i ? styles.imageCardActive : ''}`}
               >
                 <Image
                   src={seg.img}
                   alt={seg.alt}
-                  width={380}
-                  height={260}
-                  className={styles.floatingImg}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 42vw"
+                  className={styles.cardImg}
                   priority={i === 0}
                 />
-                <div className={styles.cardTag}>{seg.title}</div>
+                <div className={styles.cardOverlayTag}>
+                  <span className={styles.tagIdx}>{seg.idx}</span>
+                  <span className={styles.tagTitle}>{seg.title}</span>
+                </div>
               </div>
             ))}
           </div>
