@@ -94,24 +94,54 @@
 }
 
 .subscribeBtn {
-  background: #C9A24A;
-  color: #11172D;
-  border: none;
-  outline: none;
+  --color: #C9A24A;
+  --hover-text: #11172D;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color);
+  border: 1.5px solid var(--color);
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 10px 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 22px;
   border-radius: 30px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.8s ease, border-color 0.6s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.subscribeBtn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  width: 240%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transform: translate(0, 0);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
 }
 
 .subscribeBtn:hover {
-  background: #FFFFFF;
-  transform: translateY(-1px);
+  color: var(--hover-text) !important;
+  border-color: var(--color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 162, 74, 0.25);
+}
+
+.subscribeBtn:hover::before {
+  transform: translate(-72%, -72%);
+  transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Social Icon Circles */
