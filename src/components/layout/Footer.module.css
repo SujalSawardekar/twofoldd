@@ -210,7 +210,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0 0.5rem;
+  padding: 1.5rem 0 0;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 1rem;
@@ -219,7 +219,7 @@
 .gradientMaskOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 35%, rgba(17, 23, 45, 0.55) 68%, #11172D 100%);
+  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 30%, rgba(17, 23, 45, 0.6) 70%, #11172D 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -227,9 +227,12 @@
 .giantLogoImg {
   width: 100%;
   height: auto;
-  max-height: 380px;
+  min-height: 280px;
+  max-height: 520px;
+  transform: scale(1.15);
+  transform-origin: center top;
   object-fit: contain;
-  opacity: 0.92;
+  opacity: 0.95;
   filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.5));
 }
 
