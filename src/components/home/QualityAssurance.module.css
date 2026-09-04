@@ -114,11 +114,11 @@
 }
 
 .cardStagger2 {
-  transform: translateY(240px);
+  transform: translateY(400px);
 }
 
 .cardStagger3 {
-  transform: translateY(480px);
+  transform: translateY(800px);
 }
 
 /* Hover Interaction */
