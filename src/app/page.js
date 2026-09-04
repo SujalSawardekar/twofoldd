@@ -1,9 +1,9 @@
 import Hero from '@/components/home/Hero';
-import FoldExperience from '@/components/home/FoldExperience';
 import TrustMetrics from '@/components/home/TrustMetrics';
 import WhoWeAre from '@/components/home/WhoWeAre';
 import WhyBuyers from '@/components/home/WhyBuyers';
 import ProductRange from '@/components/home/ProductRange';
+import QualityAssurance from '@/components/home/QualityAssurance';
 import GlobalReach from '@/components/home/GlobalReach';
 import WhoWeServe from '@/components/home/WhoWeServe';
 import Insights from '@/components/home/Insights';
@@ -18,11 +18,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <FoldExperience />
       <TrustMetrics />
       <WhoWeAre />
       <WhyBuyers />
       <ProductRange />
+      <QualityAssurance />
       <GlobalReach />
       <WhoWeServe />
       <Insights />

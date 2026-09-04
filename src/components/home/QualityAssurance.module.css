@@ -1,0 +1,269 @@
+/* ═══════════════════════════════════════════════════════════════
+   TWOFOLD — 04 / QUALITY ASSURANCE
+   Optimized Proportions for 100% Full Viewport Card Visibility:
+   - Compact header height so Card 1's title, arch photo, description,
+     and EXPLORE button are 100% visible at Stage 1 before scroll begins.
+   - Pinned scroll-driven stagger-to-alignment experience matching &Fold Webflow.
+   - Warm soft neutral card background (#EBE7E0).
+   - Arch / capsule photography crop (border-radius: 100px).
+   - Strictly 2-line desktop headline.
+   ═══════════════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background-color: #F9FAF5;
+  color: #11172D;
+  padding: clamp(2.2rem, 4vh, 3.5rem) 0 clamp(3rem, 5vh, 4.5rem);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: var(--container-max, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 64px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ── HEADER (Shifts UPWARD off-screen on scroll) ── */
+.header {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto clamp(1rem, 2vh, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1vh, 12px);
+  will-change: transform, opacity;
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E5A93C;
+}
+
+/* Strictly 2 Rows on Desktop */
+.headline {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #11172D;
+  margin: 0;
+  text-align: center;
+}
+
+.headlineRow {
+  display: block;
+  white-space: nowrap;
+}
+
+.description {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.88rem, 0.98vw, 0.98rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4A5568;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* ── 3-CARD EDITORIAL GRID ── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.4vw, 36px);
+  align-items: start;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+/* Individual Card — Soft warm beige matching reference */
+.card {
+  background-color: #EBE7E0;
+  border: 1px solid rgba(17, 23, 45, 0.05);
+  border-radius: 24px;
+  padding: clamp(1.6rem, 2.2vw, 2.4rem) clamp(1.2rem, 1.8vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: clamp(440px, 50vh, 500px);
+  justify-content: space-between;
+  box-shadow: 0 12px 35px rgba(17, 23, 45, 0.025);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+/* Initial Staggered Positions (Screenshot 1) */
+.cardStagger1 {
+  transform: translateY(0);
+}
+
+.cardStagger2 {
+  transform: translateY(75px);
+}
+
+.cardStagger3 {
+  transform: translateY(150px);
+}
+
+/* Hover Interaction */
+.card:hover {
+  border-color: rgba(229, 169, 60, 0.45);
+  box-shadow: 0 24px 60px -10px rgba(17, 23, 45, 0.09);
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.cardTitle {
+  font-family: var(--font-display, 'The youngest serif', Georgia, serif);
+  font-size: clamp(1.3rem, 1.6vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.18;
+  color: #11172D;
+  margin: 0;
+}
+
+/* Arch / Capsule Crop Image Shape (Compact Height for 100% Visibility) */
+.imageWrapper {
+  position: relative;
+  width: clamp(155px, 11.5vw, 195px);
+  height: clamp(195px, 14.5vw, 245px);
+  border-radius: 100px;
+  overflow: hidden;
+  margin: clamp(0.75rem, 1.2vw, 1.25rem) 0;
+  box-shadow: 0 10px 24px rgba(17, 23, 45, 0.08);
+  flex-shrink: 0;
+  background-color: #DDD8CE;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.07);
+}
+
+/* Card Body Content */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.cardDesc {
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: clamp(0.82rem, 0.9vw, 0.88rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #4A5568;
+  margin: 0;
+  max-width: 275px;
+}
+
+/* Explore Pill Button */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #11172D;
+  color: #FAF8F5;
+  font-family: var(--font-body, 'Gramatika', sans-serif);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 9px 24px;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.ctaBtn:hover {
+  background-color: #1B2A4A;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.ctaBtn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .cardGrid {
+    gap: 16px;
+  }
+
+  .headlineRow {
+    white-space: normal;
+  }
+
+  .card {
+    min-height: 420px;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .section {
+    min-height: auto;
+    padding: 3.5rem 0;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+
+  .cardStagger1,
+  .cardStagger2,
+  .cardStagger3 {
+    transform: none !important;
+  }
+
+  .headlineRow {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper {
+    width: 150px;
+    height: 190px;
+    border-radius: 80px;
+  }
+}
