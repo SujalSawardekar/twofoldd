@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import { gsap } from '@/lib/gsap';
 import styles from './AboutHero.module.css';
@@ -20,20 +19,14 @@ export default function AboutHero() {
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    // Top metadata row reveal
-    tl.from(`.${styles.topRow}`, {
-      y: 16,
-      opacity: 0,
-      duration: 0.6,
-      delay: 0.1,
-    })
     // Massive headline reveal
-    .from(headlineRef.current?.children || [], {
+    tl.from(headlineRef.current?.children || [], {
       y: 60,
       opacity: 0,
       stagger: 0.15,
       duration: 1,
-    }, '-=0.3')
+      delay: 0.1,
+    })
     // Asymmetric architectural facility reveal
     .fromTo(
       imageFrameRef.current,
@@ -78,24 +71,8 @@ export default function AboutHero() {
 
       <div className={styles.inner}>
 
-        {/* ── TOP METADATA & BREADCRUMB ROW ── */}
-        <div className={styles.topRow}>
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link href="/" className={styles.breadLink}>Home</Link>
-            <span className={styles.breadSep}>/</span>
-            <span className={styles.breadCurrent}>About Us</span>
-          </nav>
-
-          <div className={styles.technicalCoords}>
-            <span className={styles.coordDot} />
-            <span>19°41&apos;N 72°45&apos;E · PALGHAR HUB · DIRECT CONVERTING</span>
-          </div>
-        </div>
-
         {/* ── OVERSIZED EDITORIAL HEADLINE ── */}
         <div className={styles.masthead}>
-          <span className={styles.eyebrow}>ABOUT TWOFOLD</span>
-
           <h1 className={styles.headline} ref={headlineRef}>
             <span className={styles.headlineRow1}>About Us &amp;</span>
             <span className={styles.headlineRow2}>
