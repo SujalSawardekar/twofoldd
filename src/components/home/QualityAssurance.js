@@ -72,7 +72,7 @@ export default function QualityAssurance() {
         tl.to(
           headerRef.current,
           {
-            y: -260,
+            y: -220,
             opacity: 0,
             ease: 'power2.in',
             duration: 0.25,
@@ -81,39 +81,39 @@ export default function QualityAssurance() {
         );
       }
 
-      // Step 2: Card 01 moves UPWARD into header top space (0 -> -190px)
+      // Step 2: Card 01 moves UPWARD into header top space (0 -> -160px)
       tl.to(
         cards[0],
         {
-          y: -190,
+          y: -160,
           ease: 'power1.inOut',
           duration: 0.7,
         },
         0
       );
 
-      // Step 3: Card 02 moves UPWARD (30px -> -190px) to level with Card 1
+      // Step 3: Card 02 moves UPWARD from lower position (120px -> -160px) to level with Card 1
       tl.fromTo(
         cards[1],
-        { y: 30 },
+        { y: 120 },
         {
-          y: -190,
+          y: -160,
           ease: 'power1.inOut',
-          duration: 0.7,
+          duration: 0.8,
         },
-        0.08
+        0.1
       );
 
-      // Step 4: Card 03 moves UPWARD (60px -> -190px) to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD from lower position (240px -> -160px) to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 60 },
+        { y: 240 },
         {
-          y: -190,
+          y: -160,
           ease: 'power1.inOut',
-          duration: 0.7,
+          duration: 0.8,
         },
-        0.25
+        0.35
       );
 
       // Step 5: Brief dwell hold for card alignment
@@ -134,10 +134,6 @@ export default function QualityAssurance() {
             <span className={styles.headlineRow}>Uncompromising Standards for</span>
             <span className={styles.headlineRow}>Global Export Quality.</span>
           </h2>
-
-          <p className={styles.description}>
-            Every Twofold notebook and stationery item undergoes multi-stage technical inspection for substrate integrity, ruling accuracy, binding strength, and container-export compliance before dispatch.
-          </p>
         </div>
 
         {/* ── 3-COLUMN STAGGERED EDITORIAL CARDS ── */}
