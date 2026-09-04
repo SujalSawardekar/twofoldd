@@ -75,10 +75,6 @@ export default function WhoWeServe() {
                   </div>
                 </div>
 
-                <span className={styles.itemArrow} aria-hidden="true">
-                  →
-                </span>
-
                 {/* Rotated Floating Preview Image (Clean full-bleed photo without text overlay) */}
                 <div 
                   className={`${styles.rowImageOverlay} ${styles[seg.rotateClass]} ${activeIdx === i ? styles.rowImageOverlayActive : ''}`}

@@ -72,9 +72,9 @@
 
 .itemMain {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: clamp(1.2rem, 2vw, 2.2rem);
-  max-width: 62%;
+  max-width: calc(100% - 380px);
 }
 
 .itemIdx {
@@ -83,20 +83,20 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #C9A24A;
+  margin-top: 0.2rem;
   flex-shrink: 0;
 }
 
 .itemTitleGroup {
   display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .itemTitle {
   font-family: var(--font-display, 'Playfair Display', serif);
   font-weight: 500;
-  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
   letter-spacing: -0.015em;
   line-height: 1.15;
   color: #11172D;
@@ -110,19 +110,9 @@
   line-height: 1.45;
   color: #4A5568;
   margin: 0;
-  max-width: 32ch;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.itemArrow {
-  font-size: 1.5rem;
-  color: #11172D;
-  opacity: 0.3;
-  transform: translateX(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  margin-right: calc(clamp(280px, 28vw, 360px) + 20px);
-  flex-shrink: 0;
+  max-width: 48ch;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 /* Hover States for Active Item */
@@ -137,12 +127,6 @@
 .itemActive .itemDesc {
   opacity: 1;
   color: #11172D;
-}
-
-.itemActive .itemArrow {
-  opacity: 1;
-  transform: translateX(0);
-  color: #C9A24A;
 }
 
 .itemDim {
@@ -240,10 +224,6 @@
 @media (max-width: 1024px) {
   .itemMain {
     max-width: 100%;
-  }
-
-  .itemArrow {
-    margin-right: 0;
   }
 
   .rowImageOverlay {
