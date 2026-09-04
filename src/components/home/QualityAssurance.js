@@ -67,53 +67,53 @@ export default function QualityAssurance() {
         },
       });
 
-      // Step 1: Header glides UPWARD and fades out completely in the first 25% of scroll
+      // Step 1: Header glides UPWARD and fades out completely in the first 20% of scroll
       if (headerRef.current) {
         tl.to(
           headerRef.current,
           {
             y: -260,
             opacity: 0,
-            ease: 'power2.out',
-            duration: 0.35,
+            ease: 'power2.in',
+            duration: 0.25,
           },
           0
         );
       }
 
-      // Step 2: Card 01 moves UPWARD into header top space (0 -> -180px)
+      // Step 2: Card 01 moves UPWARD into header top space (0 -> -190px)
       tl.to(
         cards[0],
         {
-          y: -180,
+          y: -190,
           ease: 'power1.inOut',
-          duration: 0.8,
+          duration: 0.7,
         },
         0
       );
 
-      // Step 3: Card 02 moves UPWARD (70px -> -180px) to level with Card 1
+      // Step 3: Card 02 moves UPWARD (30px -> -190px) to level with Card 1
       tl.fromTo(
         cards[1],
-        { y: 70 },
+        { y: 30 },
         {
-          y: -180,
+          y: -190,
           ease: 'power1.inOut',
-          duration: 0.8,
+          duration: 0.7,
         },
-        0.15
+        0.08
       );
 
-      // Step 4: Card 03 moves UPWARD (140px -> -180px) to level with Cards 1 & 2
+      // Step 4: Card 03 moves UPWARD (60px -> -190px) to level with Cards 1 & 2
       tl.fromTo(
         cards[2],
-        { y: 140 },
+        { y: 60 },
         {
-          y: -180,
+          y: -190,
           ease: 'power1.inOut',
-          duration: 0.8,
+          duration: 0.7,
         },
-        0.7
+        0.25
       );
 
       // Step 5: Brief dwell hold for card alignment
