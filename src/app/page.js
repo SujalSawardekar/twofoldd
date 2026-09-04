@@ -8,7 +8,6 @@ import QualityAssurance from '@/components/home/QualityAssurance';
 import GlobalReach from '@/components/home/GlobalReach';
 import WhoWeServe from '@/components/home/WhoWeServe';
 import Insights from '@/components/home/Insights';
-import FinalCTA from '@/components/home/FinalCTA';
 
 export const metadata = {
   title: 'Twofold — Manufacturing Quality Paper Stationery for the World',
@@ -28,7 +27,6 @@ export default function HomePage() {
       <GlobalReach />
       <WhoWeServe />
       <Insights />
-      <FinalCTA />
     </>
   );
 }

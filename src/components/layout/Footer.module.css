@@ -1,11 +1,11 @@
 /* ══════════════════════════════════════════════════════
-   FOOTER — Modern Floating Card Design (Enky Reference Style)
+   FOOTER — Dark Theme Elevated Card Design (Enky Layout)
    ══════════════════════════════════════════════════════ */
 
 .footer {
-  background: #11172D;
+  background: #080C16;
   padding: clamp(3rem, 6vw, 5rem) 0;
-  color: #11172D;
+  color: #FFFFFF;
   position: relative;
 }
 
@@ -15,19 +15,18 @@
   padding: 0 var(--gutter, 2rem);
 }
 
-/* ── Main Elevated Card Container ── */
+/* ── Dark Card Box Container ── */
 .footerCard {
-  background: #FAF8F5;
+  background: #11172D;
   border-radius: 28px;
   padding: clamp(2.5rem, 5vw, 4.2rem) clamp(2rem, 4vw, 3.5rem) clamp(1.8rem, 3vw, 2.5rem);
-  border: 1px solid #EAE6DF;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 4vw, 3.5rem);
 }
 
-/* ── Top Row Layout: Brand Newsletter (Left) + Links Grid (Right) ── */
 .topRow {
   display: grid;
   grid-template-columns: 1fr 1.35fr;
@@ -35,7 +34,6 @@
   align-items: start;
 }
 
-/* ── Brand & Newsletter Column ── */
 .brandCol {
   display: flex;
   flex-direction: column;
@@ -55,9 +53,9 @@
 .newsletterPrompt {
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.92rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.6;
-  color: #4A5568;
+  color: #A0AEC0;
   margin: 0;
   max-width: 42ch;
 }
@@ -66,18 +64,18 @@
 .newsletterForm {
   display: flex;
   align-items: center;
-  background: #FFFFFF;
-  border: 1px solid #EAE6DF;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 40px;
   padding: 5px 6px 5px 20px;
-  box-shadow: 0 4px 16px rgba(17, 23, 45, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   max-width: 420px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .newsletterForm:focus-within {
   border-color: #C9A24A;
-  box-shadow: 0 6px 20px rgba(201, 162, 74, 0.15);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .emailInput {
@@ -87,17 +85,17 @@
   background: transparent;
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.9rem;
-  color: #11172D;
+  color: #FFFFFF;
   padding: 8px 0;
 }
 
 .emailInput::placeholder {
-  color: #A0AEC0;
+  color: #718096;
 }
 
 .subscribeBtn {
-  background: #11172D;
-  color: #FFFFFF;
+  background: #C9A24A;
+  color: #11172D;
   border: none;
   outline: none;
   font-family: var(--font-body, 'Gramatika', sans-serif);
@@ -108,20 +106,19 @@
   border-radius: 30px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .subscribeBtn:hover {
-  background: #C9A24A;
-  color: #11172D;
+  background: #FFFFFF;
   transform: translateY(-1px);
 }
 
-/* Social Circles Row */
+/* Social Icon Circles */
 .socialRow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-top: 0.4rem;
 }
 
@@ -129,27 +126,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid #EAE6DF;
-  background: #FFFFFF;
-  color: #11172D;
-  font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.82rem;
-  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.25, 1);
 }
 
 .socialCircle:hover {
-  background: #11172D;
-  color: #FFFFFF;
-  border-color: #11172D;
-  transform: translateY(-2px);
+  background: #C9A24A;
+  color: #11172D;
+  border-color: #C9A24A;
+  transform: translateY(-3px);
 }
 
-/* ── Links Grid ── */
+/* Links Grid */
 .linksGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -168,7 +162,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #11172D;
+  color: #FFFFFF;
   margin: 0;
 }
 
@@ -184,7 +178,7 @@
 .footerLink {
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.9rem;
-  color: #4A5568;
+  color: #A0AEC0;
   text-decoration: none;
   transition: color 0.25s ease, transform 0.25s ease;
   display: inline-block;
@@ -205,27 +199,27 @@
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.88rem;
   line-height: 1.5;
-  color: #4A5568;
+  color: #A0AEC0;
   margin: 0;
 }
 
-/* ── Giant Brand Logo with Subtle Gradient ── */
+/* Giant Brand Logo with Gold Subtle Gradient Overlay */
 .giantLogoContainer {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   overflow: hidden;
-  border-top: 1px solid #EAE6DF;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 0.5rem;
 }
 
 .gradientMaskOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(250, 248, 245, 0) 0%, rgba(201, 162, 74, 0.08) 50%, rgba(17, 23, 45, 0.05) 100%);
+  background: linear-gradient(180deg, rgba(17, 23, 45, 0) 0%, rgba(201, 162, 74, 0.12) 50%, rgba(17, 23, 45, 0.2) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -233,10 +227,10 @@
 .giantLogoImg {
   width: 100%;
   height: auto;
-  max-height: 220px;
+  max-height: 230px;
   object-fit: contain;
-  opacity: 0.95;
-  filter: drop-shadow(0 10px 24px rgba(17, 23, 45, 0.06));
+  opacity: 0.92;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1), opacity 0.5s ease;
 }
 
@@ -245,13 +239,13 @@
   opacity: 1;
 }
 
-/* ── Bottom Bar: Copyright & Legal ── */
+/* Bottom Bar */
 .bottomBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 1.2rem;
-  border-top: 1px solid #EAE6DF;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .copyText {
@@ -276,10 +270,9 @@
 }
 
 .legalLink:hover {
-  color: #11172D;
+  color: #FFFFFF;
 }
 
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .topRow {
     grid-template-columns: 1fr;
