@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════
-   WHO WE SERVE — Typographic List + Fixed Right-Side Image Panel
+   WHO WE SERVE — Typographic List + Row-Anchored Overlapping Image Overlay
    ══════════════════════════════════════════════════════ */
 
 .section {
@@ -44,22 +44,18 @@
   max-width: 34ch;
 }
 
-/* ── 2-Column Grid Layout ── */
-.gridContainer {
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  gap: clamp(2.5rem, 4vw, 4.5rem);
-  align-items: stretch;
+/* ── Typographic List Container ── */
+.listWrapper {
+  position: relative;
+  width: 100%;
 }
 
-/* ── Left: Typographic List ── */
 .list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .item {
@@ -67,7 +63,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: clamp(1.6rem, 2.8vw, 2.5rem) 0;
+  padding: clamp(2.4rem, 4.2vw, 3.8rem) 0;
   border-bottom: 1px solid #EAE6DF;
   cursor: pointer;
   position: relative;
@@ -77,31 +73,32 @@
 .itemMain {
   display: flex;
   align-items: flex-start;
-  gap: clamp(1.2rem, 2vw, 2rem);
+  gap: clamp(1.2rem, 2.5vw, 2.5rem);
+  max-width: 60%;
 }
 
 .itemIdx {
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #C9A24A;
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
   flex-shrink: 0;
 }
 
 .itemTitleGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .itemTitle {
   font-family: var(--font-display, 'Playfair Display', serif);
   font-weight: 500;
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
   letter-spacing: -0.015em;
-  line-height: 1.15;
+  line-height: 1.1;
   color: #11172D;
   margin: 0;
   transition: color 0.3s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
@@ -109,21 +106,22 @@
 
 .itemDesc {
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   line-height: 1.55;
   color: #4A5568;
   margin: 0;
-  max-width: 38ch;
+  max-width: 36ch;
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
 .itemArrow {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #11172D;
   opacity: 0.3;
-  transform: translateX(-8px);
+  transform: translateX(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  margin-right: calc(clamp(320px, 32vw, 440px) + 20px);
   flex-shrink: 0;
 }
 
@@ -148,32 +146,35 @@
 }
 
 .itemDim {
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
-/* ── Right Side: Fixed Pinned Image Preview Box ── */
-.rightImagePanel {
-  position: relative;
-  width: 100%;
-  min-height: 440px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid #EAE6DF;
-  box-shadow: 0 16px 40px rgba(17, 23, 45, 0.06);
-  background: #FAF8F5;
-}
-
-.imageCard {
+/* ── Right-Side Image Overlay (Anchored to Right Side of Active Row, Overlapping Titles) ── */
+.rowImageOverlay {
   position: absolute;
-  inset: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(0.92);
+  width: clamp(320px, 32vw, 440px);
+  height: clamp(220px, 22vw, 290px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(234, 230, 223, 0.8);
+  box-shadow: 0 24px 60px rgba(17, 23, 45, 0.22);
+  background: #11172D;
+  z-index: 50;
+  pointer-events: none;
   opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.25, 1), transform 0.45s cubic-bezier(0.2, 0.8, 0.25, 1);
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.25, 1), 
+              transform 0.35s cubic-bezier(0.2, 0.8, 0.25, 1), 
+              visibility 0.35s ease;
 }
 
-.imageCardActive {
+.rowImageOverlayActive {
   opacity: 1;
-  transform: scale(1);
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
 }
 
 .cardImg {
@@ -183,23 +184,23 @@
 
 .cardOverlayTag {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
   background: rgba(17, 23, 45, 0.85);
   backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: #FFFFFF;
 }
 
 .tagIdx {
   font-family: var(--font-body, 'Gramatika', sans-serif);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #C9A24A;
   letter-spacing: 0.08em;
@@ -207,19 +208,22 @@
 
 .tagTitle {
   font-family: var(--font-display, 'Playfair Display', serif);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: #FFFFFF;
 }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .gridContainer {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .itemMain {
+    max-width: 100%;
   }
 
-  .rightImagePanel {
-    min-height: 340px;
+  .itemArrow {
+    margin-right: 0;
+  }
+
+  .rowImageOverlay {
+    display: none;
   }
 }

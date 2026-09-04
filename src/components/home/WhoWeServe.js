@@ -36,7 +36,7 @@ const SEGMENTS = [
 ];
 
 export default function WhoWeServe() {
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(null);
 
   return (
     <section className={styles.section} id="who-we-serve">
@@ -50,11 +50,13 @@ export default function WhoWeServe() {
           </h2>
         </div>
 
-        {/* Main 2-Column Grid: Typographic List (Left) + Pinned Image Panel (Right Side of Title) */}
-        <div className={styles.gridContainer}>
-
-          {/* Left: Typographic List */}
-          <ul className={styles.list} role="list">
+        {/* Typographic List with Pinned Right-Side Image Cards Overlapping Titles */}
+        <div className={styles.listWrapper}>
+          <ul
+            className={styles.list}
+            role="list"
+            onMouseLeave={() => setActiveIdx(null)}
+          >
             {SEGMENTS.map((seg, i) => (
               <li
                 key={seg.idx}
@@ -72,33 +74,25 @@ export default function WhoWeServe() {
                 <span className={styles.itemArrow} aria-hidden="true">
                   →
                 </span>
+
+                {/* Right-Side Image Card Overlapping Current & Adjacent Title Rows */}
+                <div className={`${styles.rowImageOverlay} ${activeIdx === i ? styles.rowImageOverlayActive : ''}`}>
+                  <Image
+                    src={seg.img}
+                    alt={seg.alt}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 440px"
+                    className={styles.cardImg}
+                    priority={i === 0}
+                  />
+                  <div className={styles.cardOverlayTag}>
+                    <span className={styles.tagIdx}>{seg.idx}</span>
+                    <span className={styles.tagTitle}>{seg.title}</span>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
-
-          {/* Right Side: Pinned Image Preview Box */}
-          <div className={styles.rightImagePanel}>
-            {SEGMENTS.map((seg, i) => (
-              <div
-                key={seg.idx}
-                className={`${styles.imageCard} ${activeIdx === i ? styles.imageCardActive : ''}`}
-              >
-                <Image
-                  src={seg.img}
-                  alt={seg.alt}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 42vw"
-                  className={styles.cardImg}
-                  priority={i === 0}
-                />
-                <div className={styles.cardOverlayTag}>
-                  <span className={styles.tagIdx}>{seg.idx}</span>
-                  <span className={styles.tagTitle}>{seg.title}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
 
       </div>
