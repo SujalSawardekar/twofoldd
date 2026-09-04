@@ -175,7 +175,7 @@
   overflow: hidden;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.55s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  transition: color 0.8s ease, border-color 0.6s ease, transform 0.5s ease, box-shadow 0.5s ease;
   z-index: 1;
   width: fit-content;
 }
@@ -192,7 +192,7 @@
   left: 100%;
   transform: translate(0, 0);
   /* Smooth, graceful return on mouse leave */
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
 }
 
@@ -206,7 +206,7 @@
 .cta:hover::before {
   transform: translate(-72%, -72%);
   /* Slow, silky, clearly visible expanding circle wave on hover */
-  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .cta:active::before {
@@ -215,7 +215,7 @@
 }
 
 .cta svg {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
 }
 

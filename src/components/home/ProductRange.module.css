@@ -79,7 +79,7 @@
   overflow: hidden;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.55s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  transition: color 0.8s ease, border-color 0.6s ease, transform 0.5s ease, box-shadow 0.5s ease;
   z-index: 1;
   width: fit-content;
   margin-top: var(--space-md);
@@ -97,7 +97,7 @@
   left: 100%;
   transform: translate(0, 0);
   /* Smooth, graceful return on mouse leave */
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
 }
 
@@ -111,7 +111,7 @@
 .cta:hover::before {
   transform: translate(-72%, -72%);
   /* Slow, silky, clearly visible expanding circle wave on hover */
-  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .cta:active::before {
@@ -149,18 +149,21 @@
   grid-column: span 2;
 }
 
-.imagePlaceholder {
+.imageWrap {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(160deg, #d3cec8 0%, #bfbab3 100%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.item.tall .imagePlaceholder {
-  background-image: linear-gradient(160deg, #c9c4bd 0%, #b5b0a9 100%);
+.productImg {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
 }
 
-.item.wide .imagePlaceholder {
-  background-image: linear-gradient(135deg, #d0cbc4 0%, #bcb7b0 100%);
+.item:hover .productImg {
+  transform: scale(1.06);
 }
 
 .itemMeta {

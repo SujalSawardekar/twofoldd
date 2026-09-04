@@ -159,7 +159,7 @@
   cursor: pointer;
   overflow: hidden;
   border: 2px solid var(--color);
-  transition: color 0.55s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  transition: color 0.8s ease, border-color 0.6s ease, transform 0.5s ease, box-shadow 0.5s ease;
   z-index: 1;
   font-size: 0.85rem;
   border-radius: 6px;
@@ -185,7 +185,7 @@
   left: 100%;
   transform: translate(0, 0);
   /* Smooth, graceful return on mouse leave */
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
 }
 
@@ -199,7 +199,7 @@
 .ctaPrimary:hover::before {
   transform: translate(-72%, -72%);
   /* Slow, silky, clearly visible expanding circle wave on hover */
-  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .ctaPrimary:active::before {
@@ -208,7 +208,7 @@
 }
 
 .ctaPrimary svg {
-  transition: transform 0.35s ease;
+  transition: transform 0.45s ease;
   flex-shrink: 0;
 }
 
@@ -227,7 +227,7 @@
   cursor: pointer;
   overflow: hidden;
   border: 2px solid var(--color);
-  transition: color 0.55s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  transition: color 0.8s ease, border-color 0.6s ease, transform 0.5s ease, box-shadow 0.5s ease;
   z-index: 1;
   font-size: 0.85rem;
   border-radius: 6px;
@@ -253,7 +253,7 @@
   left: 100%;
   transform: translate(0, 0);
   /* Smooth, graceful return on mouse leave */
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
 }
 
@@ -267,7 +267,7 @@
 .ctaSecondary:hover::before {
   transform: translate(-72%, -72%);
   /* Slow, silky, clearly visible expanding circle wave on hover */
-  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .ctaSecondary:active::before {
@@ -276,7 +276,7 @@
 }
 
 .ctaSecondary svg {
-  transition: transform 0.35s ease;
+  transition: transform 0.45s ease;
   flex-shrink: 0;
 }
 
@@ -474,7 +474,7 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
-  transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 2px 8px rgba(17, 23, 45, 0.06);
 }
 
@@ -489,7 +489,7 @@
   top: 100%;
   left: 100%;
   transform: translate(0, 0);
-  transition: transform 0.22s ease-out;
+  transition: transform 0.5s ease-out;
   pointer-events: none;
 }
 
@@ -501,7 +501,7 @@
 
 .arrowBtn:hover::before {
   transform: translate(-80%, -80%);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .arrowBtn:active::before {

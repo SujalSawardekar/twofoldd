@@ -184,32 +184,61 @@
   max-width: 280px;
 }
 
-/* Explore Pill Button */
+/* Explore Button */
 .ctaBtn {
+  --color: var(--color-navy, #11172D);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  background-color: #11172D;
-  color: #FAF8F5;
+  background: transparent;
+  color: var(--color);
   font-family: var(--font-body, 'Gramatika', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   padding: 10px 24px;
-  border-radius: 9999px;
-  text-decoration: none;
-  border: none;
+  border-radius: 6px;
+  border: 2px solid var(--color);
+  position: relative;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.8s ease, border-color 0.6s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  z-index: 1;
+}
+
+.ctaBtn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  width: 240%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transform: translate(0, 0);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
 }
 
 .ctaBtn:hover {
-  background-color: #1B2A4A;
+  color: #FFFFFF !important;
+  border-color: var(--color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -4px rgba(17, 23, 45, 0.22);
+}
+
+.ctaBtn:hover::before {
+  transform: translate(-72%, -72%);
+  transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .arrow {
   display: inline-block;
-  transition: transform 0.25s ease;
+  transition: transform 0.45s ease;
 }
 
 .ctaBtn:hover .arrow {

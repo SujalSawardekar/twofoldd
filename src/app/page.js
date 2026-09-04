@@ -3,6 +3,7 @@ import TrustMetrics from '@/components/home/TrustMetrics';
 import WhoWeAre from '@/components/home/WhoWeAre';
 import WhyBuyers from '@/components/home/WhyBuyers';
 import ProductRange from '@/components/home/ProductRange';
+import NotebookShelf from '@/components/home/NotebookShelf';
 import QualityAssurance from '@/components/home/QualityAssurance';
 import GlobalReach from '@/components/home/GlobalReach';
 import WhoWeServe from '@/components/home/WhoWeServe';
@@ -22,6 +23,7 @@ export default function HomePage() {
       <WhoWeAre />
       <WhyBuyers />
       <ProductRange />
+      <NotebookShelf />
       <QualityAssurance />
       <GlobalReach />
       <WhoWeServe />
